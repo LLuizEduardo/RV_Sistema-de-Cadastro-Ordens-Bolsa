@@ -8,7 +8,7 @@ namespace RV.Controllers
 {
     public class AcaoController : Controller
     {
-        public IActionResult Index()
+        public IActionResult IndexAcao()
         {
             return View();
         }

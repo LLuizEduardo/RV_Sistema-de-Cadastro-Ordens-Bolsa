@@ -8,7 +8,7 @@ namespace RV.Controllers
 {
     public class OpcaoController : Controller
     {
-        public IActionResult Index()
+        public IActionResult IndexOpcao()
         {
             return View();
         }
