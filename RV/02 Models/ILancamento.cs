@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RV.Models
+namespace RV
 {
     interface ILancamento
     {
-
     }
 }

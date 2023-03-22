@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RV.Controllers
+namespace RV
 {
     public class HomeController : Controller
     {
