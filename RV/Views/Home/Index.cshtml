@@ -1,103 +1,135 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Cadastro de ordens";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Cadastro de ordens</h1>
-</div>
+<body class="bg-dark">
 
-
-<div>
-    <h3>Lançar ordens de Ações</h3>
-    <br />
-
-    <div class="row">
-
-        <div class="col">
-            <input type="date" class="form-control" placeholder="Data da Operação">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Papel">
-        </div>
-        
-        <div class="col">
-            <input type="number" class="form-control" placeholder="Quantidade">
-        </div>
-        
-        <div class="col">
-            <input type="number" class="form-control" placeholder="Valor">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Tipo de Ordem">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Corretora">
-        </div>
+    <div class="text-center">
+        <h1 class="text-light display-4"> Cadastro de ordens</h1>
     </div>
-    <br />
 
-    <a role="button" class="btn btn-primary">Salvar</a>
-</div>
 
-<br />
-<br />
+    <div>
+        <h3 class="text-light"> Lançar ordens de Ações</h3>
+        <br />
 
-<div>
-    <h3>Lançar ordens de Opções</h3>
-    <br />
+        <div class="row">
 
-    <div  class="row">
+            <div class="col">
+                <input type="date" class="form-control" placeholder="Data da Operação">
+            </div>
 
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Opção">
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Papel</option>
+                    <option value="1"> ITSA4</option>
+                    <option value="2"> VALE3</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Quantidade">
+            </div>
+
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Valor">
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Tipo de Ordem</option>
+                    <option value="1"> Compra</option>
+                    <option value="2"> Venda</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Corretora</option>
+                    <option value="1"> Genial</option>
+                    <option value="2"> Clear</option>
+                </select>
+            </div>
         </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Tipo">
-        </div>
-        
-        <div class="col">
-            <input type="number" class="form-control" placeholder="Strike">
-        </div>
-        
-        <div class="col">
-            <input type="date" class="form-control" placeholder="Vencimento">
-        </div>
+        <br />
 
+        <a role="button" asp-controller="Acao" asp-action="IndexAcao" class="btn btn-primary"> Salvar</a>
     </div>
 
     <br />
-
-    <div class="row">
-
-        <div class="col">
-            <input type="date" class="form-control" placeholder="Data da Operação">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Papel">
-        </div>
-        
-        <div class="col">
-            <input type="number" class="form-control" placeholder="Quantidade">
-        </div>
-        
-        <div class="col">
-            <input type="number" class="form-control" placeholder="Valor">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Tipo de Ordem">
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Corretora">
-        </div>
-    </div>
     <br />
 
-    <a role="button" class="btn btn-primary">Salvar</a>
-</div>
+    <div>
+        <h3 class="text-light"> Lançar ordens de Opções</h3>
+        <br />
+
+        <div class="row">
+
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Opção">
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Tipo</option>
+                    <option value="1"> Call</option>
+                    <option value="2"> Put</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Strike">
+            </div>
+
+            <div class="col">
+                <input type="date" class="form-control" placeholder="Vencimento">
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="row">
+
+            <div class="col">
+                <input type="date" class="form-control" placeholder="Data da Operação">
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Papel</option>
+                    <option value="1"> ITSA4</option>
+                    <option value="2"> VALE3</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Quantidade">
+            </div>
+
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Valor">
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Tipo de Ordem</option>
+                    <option value="1"> Compra</option>
+                    <option value="2"> Venda</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <select class="form-control">
+                    <option selected> Corretora</option>
+                    <option value="1"> Genial</option>
+                    <option value="2"> Clear</option>
+                </select>
+            </div>
+        </div>
+        <br />
+
+        <a role="button" asp-controller="Opcao" asp-action="IndexOpcao" class="btn btn-primary"> Salvar</a>
+    </div>
+
+</body>
