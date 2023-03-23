@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<OpcaoModel>
+@{
     ViewData["Title"] = "Opções";
 }
 
@@ -6,7 +7,6 @@
 
 <div class="text-center">
     <h1>Lista de ordens</h1>
-    @*<h3 class="display-4">Módulo de ações</h3>*@
 </div>
 
 <br />
@@ -27,54 +27,30 @@
             <th scope="col"></th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td>22/01/2022</td>
-            <td>ITSAV230</td>
-            <td>Call</td>
-            <td>ITSA4</td>
-            <td>8,16</td>
-            <td>100</td>
-            <td>24/06/2022</td>
-            <td>0,35</td>
-            <td>Compra</td>
-            <td>Clear</td>
-            <td>
-                <a role="button" class="btn btn-primary btn-sm">Editar</a>
-                <a role="button" class="btn btn-danger btn-sm">Apagar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>22/01/2022</td>
-            <td>ITSAV230</td>
-            <td>Call</td>
-            <td>ITSA4</td>
-            <td>8,16</td>
-            <td>100</td>
-            <td>24/06/2022</td>
-            <td>0,35</td>
-            <td>Compra</td>
-            <td>Clear</td>
-            <td>
-                <a role="button" class="btn btn-primary btn-sm">Editar</a>
-                <a role="button" class="btn btn-danger btn-sm">Apagar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>22/01/2022</td>
-            <td>ITSAV230</td>
-            <td>Put</td>
-            <td>ITSA4</td>
-            <td>8,16</td>
-            <td>100</td>
-            <td>24/06/2022</td>
-            <td>0,35</td>
-            <td>Compra</td>
-            <td>Clear</td>
-            <td>
-                <a role="button" class="btn btn-primary btn-sm">Editar</a>
-                <a role="button" class="btn btn-danger btn-sm">Apagar</a>
-            </td>
-        </tr>
-    </tbody>
+
+    @if (Model != null && Model.Any())
+    {
+        foreach (OpcaoModel Opcao in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@Opcao.Data</td>
+                    <td>@Opcao.Opcao</td>
+                    <td>@Opcao.Tipo</td>
+                    <td>@Opcao.Papel</td>
+                    <td>@Opcao.Strike</td>
+                    <td>@Opcao.Quantidade</td>
+                    <td>@Opcao.Vencimento</td>
+                    <td>@Opcao.Valor</td>
+                    <td>@Opcao.Ordem</td>
+                    <td>@Opcao.Corretora</td>
+                    <td>
+                        <a role="button" class="btn btn-primary btn-sm">Editar</a>
+                        <a role="button" class="btn btn-danger btn-sm">Apagar</a>
+                    </td>
+                </tr>
+            </tbody>
+        }
+    }
+
 </table>

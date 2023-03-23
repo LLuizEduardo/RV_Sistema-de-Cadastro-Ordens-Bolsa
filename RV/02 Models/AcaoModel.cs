@@ -12,7 +12,7 @@ namespace RV
         public string Papel { get; set; }
         public int Quantidade { get; set; }
         public double Valor { get; set; }
-        public string TipoOrdem { get; set; }
+        public string Ordem { get; set; }
         public string Corretora { get; set; }
     }
 }
