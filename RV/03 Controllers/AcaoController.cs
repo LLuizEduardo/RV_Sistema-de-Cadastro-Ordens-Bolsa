@@ -13,9 +13,26 @@ namespace RV
             return View();
         }
 
+
+
+
+
+
+        private readonly BancoContent _bancoContent;
+
+        public AcaoController(BancoContent bancoContent)
+        {
+            _bancoContent = bancoContent;
+        }
+
+
+        [HttpPost]
         public IActionResult Salvar(AcaoModel acao)
         {
-            return View(acao);
+            _bancoContent.Acoes.Add(acao);
+            _bancoContent.SaveChanges();
+
+            return RedirectToAction("IndexAcao");
         }
 
         public IActionResult Editar(AcaoModel acao)
