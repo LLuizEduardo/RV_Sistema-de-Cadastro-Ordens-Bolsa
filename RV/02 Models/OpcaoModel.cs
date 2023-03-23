@@ -7,6 +7,7 @@ namespace RV
 {
     public class OpcaoModel
     {
+        public int Id { get; set; }
         public DateTime Data { get; set; }
         public string Papel { get; set; }
         public int Quantidade { get; set; }

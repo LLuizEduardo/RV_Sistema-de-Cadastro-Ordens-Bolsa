@@ -15,8 +15,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="04 Data\" />
-  </ItemGroup>
-
 </Project>
