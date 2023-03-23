@@ -32,14 +32,14 @@ namespace RV.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Ordem")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Papel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
-
-                    b.Property<string>("TipoOrdem")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Valor")
                         .HasColumnType("float");
@@ -62,13 +62,22 @@ namespace RV.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Opcao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ordem")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Papel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<string>("TipoOrdem")
+                    b.Property<double>("Strike")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Tipo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Valor")

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RV.Migrations
 {
-    public partial class tbs_acao_opcao : Migration
+    public partial class TBCriacao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,7 @@ namespace RV.Migrations
                     Papel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     Valor = table.Column<double>(type: "float", nullable: false),
-                    TipoOrdem = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ordem = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Corretora = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -32,11 +32,14 @@ namespace RV.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Opcao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Papel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Strike = table.Column<double>(type: "float", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     Vencimento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Valor = table.Column<double>(type: "float", nullable: false),
-                    TipoOrdem = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ordem = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Corretora = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

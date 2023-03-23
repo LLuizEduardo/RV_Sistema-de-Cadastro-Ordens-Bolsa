@@ -10,8 +10,8 @@ using RV;
 namespace RV.Migrations
 {
     [DbContext(typeof(BancoContent))]
-    [Migration("20230323010102_tbs_acao_opcao")]
-    partial class tbs_acao_opcao
+    [Migration("20230323154410_TBCriacao")]
+    partial class TBCriacao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,14 +34,14 @@ namespace RV.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Ordem")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Papel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
-
-                    b.Property<string>("TipoOrdem")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Valor")
                         .HasColumnType("float");
@@ -64,13 +64,22 @@ namespace RV.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Opcao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ordem")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Papel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<string>("TipoOrdem")
+                    b.Property<double>("Strike")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Tipo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Valor")
