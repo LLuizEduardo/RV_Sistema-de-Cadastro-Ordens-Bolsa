@@ -17,37 +17,41 @@
             <div class="row">
 
                 <div class="col">
-                    <input type="date" class="form-control" asp-for="Data" placeholder="Data da Operação">
+                    <label class="text-light">Data do Pregão</label>
+                    <input type="date" class="form-control" asp-for="Data">
                 </div>
 
                 <div class="col">
+                    <label class="text-light">Papel</label>
                     <select class="form-control" asp-for="Papel">
-                        <option selected> Papel</option>
+                        <option selected> Selecione</option>
                         <option value="ITSA4"> ITSA4</option>
                         <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
 
                 <div class="col">
-                    <input type="number" class="form-control" asp-for="Quantidade" placeholder="Quantidade">
+                    <label class="text-light">Quantidade</label>
+                    <input type="number" class="form-control" asp-for="Quantidade" placeholder="100">
                 </div>
 
                 <div class="col">
-                    <input type="number" class="form-control" asp-for="Valor" placeholder="Valor">
+                    <label class="text-light">Valor Unitário</label>
+                    <input type="number" class="form-control" asp-for="Valor" placeholder="0,00">
                 </div>
 
                 <div class="col">
+                    <label class="text-light">Ordem de:</label>
                     <select class="form-control" asp-for="Ordem">
-                        <option selected> Tipo de Ordem</option>
-                        <option value="Compra"> Compra</option>
+                        <option selected>Compra</option>
                         <option value="Venda"> Venda</option>
                     </select>
                 </div>
 
                 <div class="col">
+                    <label class="text-light">Corretora</label>
                     <select class="form-control" asp-for="Corretora">
-                        <option selected> Corretora</option>
-                        <option value="Genial"> Genial</option>
+                        <option selected>Genial</option>
                         <option value="Clear"> Clear</option>
                     </select>
                 </div>

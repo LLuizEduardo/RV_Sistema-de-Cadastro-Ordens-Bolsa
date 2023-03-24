@@ -33,11 +33,24 @@ namespace RV
             return RedirectToAction("IndexAcao");
         }
 
-
-        //public IActionResult Editar(AcaoModel acao)
+        //public AcaoModel BuscaId(int id)
         //{
-        //    return View();
+        //    return _bancoContent.Acoes.FirstOrDefault(x => x.Id == 7);
+
         //}
+
+        public IActionResult Editar(AcaoModel acao)
+        {
+            //AcaoModel acaoDB = BuscaId(acao.Id);
+            //acaoDB.Data = acao.Data;
+            //acaoDB.Papel = acao.Papel;
+            //acaoDB.Quantidade = acao.Quantidade;
+            //acaoDB.Valor = acao.Valor;
+            //acaoDB.Corretora = acao.Corretora;
+            //acaoDB.Ordem = acao.Ordem;
+
+            return View();
+        }
 
 
         //public IActionResult Apagar(AcaoModel acao)
