@@ -39,7 +39,7 @@ namespace RV
 
         //public AcaoModel BuscaId(int id)
         //{
-        //    return _bancoContent.Acoes.FirstOrDefault(x => x.Id == 7);
+        //    return _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
 
         //}
 
@@ -56,10 +56,18 @@ namespace RV
             return View();
         }
 
+        
+        private void ApaguePorModel(int id)
+        {
+           AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
+            _bancoContent.Acoes.Remove(acaoDB);
+            _bancoContent.SaveChanges();            
+        }
 
-        //public IActionResult Apagar(AcaoModel acao)
-        //{
-        //    return View();
-        //}
+        public IActionResult Apagar(int id)
+        {
+            ApaguePorModel(8);
+            return RedirectToAction("IndexAcao");
+        }
     }
 }
