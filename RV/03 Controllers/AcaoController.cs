@@ -8,7 +8,7 @@ namespace RV
 {
     public class AcaoController : Controller
     {
-        
+
         private readonly BancoContent _bancoContent;
 
         public AcaoController(BancoContent bancoContent)
@@ -27,10 +27,14 @@ namespace RV
         [HttpPost]
         public IActionResult Salvar(AcaoModel acao)
         {
-            _bancoContent.Acoes.Add(acao);
-            _bancoContent.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _bancoContent.Acoes.Add(acao);
+                _bancoContent.SaveChanges();
 
-            return RedirectToAction("IndexAcao");
+                return RedirectToAction("IndexAcao");
+            }
+            return View();
         }
 
         //public AcaoModel BuscaId(int id)
