@@ -37,15 +37,15 @@ namespace RV
             return View();
         }
 
-        //public AcaoModel BuscaId(int id)
-        //{
-        //    return _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
+        public AcaoModel BuscaId(int id)
+        {
+            return _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
 
-        //}
+        }
 
         public IActionResult Editar(AcaoModel acao)
         {
-            //AcaoModel acaoDB = BuscaId(acao.Id);
+            AcaoModel acaoDB = BuscaId(acao.Id);
             //acaoDB.Data = acao.Data;
             //acaoDB.Papel = acao.Papel;
             //acaoDB.Quantidade = acao.Quantidade;
@@ -53,7 +53,10 @@ namespace RV
             //acaoDB.Corretora = acao.Corretora;
             //acaoDB.Ordem = acao.Ordem;
 
-            return View();
+            //_bancoContent.Acoes.Update(acaoDB);
+            //_bancoContent.SaveChanges();
+
+            return View(acaoDB);
         }
 
         
@@ -66,7 +69,7 @@ namespace RV
 
         public IActionResult Apagar(int id)
         {
-            ApaguePorModel(8);
+            ApaguePorModel(id);
             return RedirectToAction("IndexAcao");
         }
     }

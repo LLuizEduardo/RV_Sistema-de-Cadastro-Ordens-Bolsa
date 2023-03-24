@@ -22,19 +22,19 @@
             <div class="row">
 
                 <div class="col">
-                    <input type="date" class="form-control" asp-for="Data" placeholder="Data da Operação">
+                    <input type="date" value="@Model.Data" class="form-control" asp-for="Data" placeholder="Data da Operação">
                 </div>
 
                 <div class="col">
-                    <select class="form-control" asp-for="Papel">
-                        <option selected> Papel</option>
+                    <select class="form-control">
+                        <option selected> @Model.Papel</option>
                         <option value="ITSA4"> ITSA4</option>
                         <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
 
                 <div class="col">
-                    <input type="number" class="form-control" asp-for="Quantidade" placeholder="Quantidade">
+                    <input type="number" class="form-control" value="@Model.Quantidade" placeholder="Quantidade">
                 </div>
 
                 <div class="col">
