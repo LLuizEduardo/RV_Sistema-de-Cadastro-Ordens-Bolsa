@@ -59,7 +59,14 @@ namespace RV
             return View(acaoDB);
         }
 
-        
+        public IActionResult Atualizar(AcaoModel acao)
+        {
+            _bancoContent.Acoes.Update(acao);
+            _bancoContent.SaveChanges();
+
+            return Redirect("IndexAcao");
+        }
+
         private void ApaguePorModel(int id)
         {
            AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);

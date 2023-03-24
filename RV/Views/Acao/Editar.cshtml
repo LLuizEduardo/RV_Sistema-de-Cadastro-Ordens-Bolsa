@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="col">
-                    <select class="form-control">
+                    <select class="form-control" asp-for="Papel" >
                         <option selected> @Model.Papel</option>
                         <option value="ITSA4"> ITSA4</option>
                         <option value="VALE3"> VALE3</option>
@@ -34,16 +34,16 @@
                 </div>
 
                 <div class="col">
-                    <input type="number" class="form-control" value="@Model.Quantidade" placeholder="Quantidade">
+                    <input type="number" class="form-control" asp-for="Quantidade" value="@Model.Quantidade" placeholder="Quantidade">
                 </div>
 
                 <div class="col">
-                    <input type="number" class="form-control" asp-for="Valor" placeholder="Valor">
+                    <input type="number" class="form-control" asp-for="Valor" value="@Model.Valor" placeholder="Valor">
                 </div>
 
                 <div class="col">
                     <select class="form-control" asp-for="Ordem">
-                        <option selected> Tipo de Ordem</option>
+                        <option selected> @Model.Ordem</option>
                         <option value="Compra"> Compra</option>
                         <option value="Venda"> Venda</option>
                     </select>
@@ -51,7 +51,7 @@
 
                 <div class="col">
                     <select class="form-control" asp-for="Corretora">
-                        <option selected> Corretora</option>
+                        <option selected> @Model.Corretora</option>
                         <option value="Genial"> Genial</option>
                         <option value="Clear"> Clear</option>
                     </select>
@@ -59,7 +59,7 @@
             </div>
             <br />
 
-            <button type="submit" asp-controller="Acao" asp-action="Salvar" class="btn btn-primary"> Salvar</button>
+            <button type="submit" asp-controller="Acao" asp-action="Atualizar" class="btn btn-primary"> Salvar</button>
         </div>
     </form>
 
