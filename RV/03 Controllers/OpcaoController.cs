@@ -1,35 +1,61 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RV
 {
     public class OpcaoController : Controller
     {
+        private readonly BancoContent _bancoContent;
+        public OpcaoController(BancoContent bancoContent)
+        {
+            _bancoContent = bancoContent;
+        }
         public IActionResult IndexOpcao()
         {
-            return View();
-        }
-        public IActionResult Salvar(OpcaoModel opcao)
-        {
-            return View(opcao);
+            List<OpcaoModel> opcoes = _bancoContent.Opcoes.ToList();
+
+            return View(opcoes);
         }
 
-        public IActionResult Editar(OpcaoModel opcao)
+        [HttpPost]
+        public IActionResult Salvar(OpcaoModel opcaoe)
         {
+            if (ModelState.IsValid)
+            {
+                _bancoContent.Opcoes.Add(opcaoe);
+                _bancoContent.SaveChanges();
+
+                return RedirectToAction("IndexOpcao");
+            }
+
             return View();
         }
 
-        public IActionResult Listar(OpcaoModel opcao)
+        public IActionResult Editar(OpcaoModel opcaoe)
         {
-            return View();
+            OpcaoModel opcaoDB = _bancoContent.Opcoes.FirstOrDefault(x=>x.Id==opcaoe.Id);
+
+            return View(opcaoDB);
         }
 
-        public IActionResult Apagar(OpcaoModel opcao)
+        [HttpPost]
+        public IActionResult Atualizar(OpcaoModel opcaoe)
         {
-            return View();
+            _bancoContent.Opcoes.Update(opcaoe);
+            _bancoContent.SaveChanges();
+            return RedirectToAction("IndexOpcao");
+        }
+
+
+        public IActionResult Apagar(int id)
+        {
+            OpcaoModel opcao = _bancoContent.Opcoes.FirstOrDefault(x=>x.Id==id);
+            _bancoContent.Opcoes.Remove(opcao);
+            _bancoContent.SaveChanges();
+
+
+            return RedirectToAction("IndexOpcao");
         }
     }
 }
