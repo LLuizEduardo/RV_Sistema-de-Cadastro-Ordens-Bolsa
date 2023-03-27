@@ -13,7 +13,10 @@ namespace RV
             _bancoContent = bancoContent;
         }
 
-
+        public IActionResult Cadastro()
+        {
+            return View();
+        }
         public IActionResult IndexAcao()
         {
             List<AcaoModel> acoes = _bancoContent.Acoes.ToList();
@@ -31,7 +34,7 @@ namespace RV
 
                 return RedirectToAction("IndexAcao");
             }
-            return View();
+            return RedirectToAction("Cadastro");
         }
         
         public IActionResult Editar(AcaoModel acao)
