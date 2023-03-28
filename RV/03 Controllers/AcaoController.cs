@@ -34,7 +34,6 @@ namespace RV
 
                 return RedirectToAction("IndexAcao");
             }
-            //return RedirectToAction("Cadastro");
             return View(acao);
         }
         
@@ -47,10 +46,14 @@ namespace RV
         [HttpPost]
         public IActionResult Atualizar(AcaoModel acao)
         {
+            if (ModelState.IsValid)
+            {
             _bancoContent.Acoes.Update(acao);
             _bancoContent.SaveChanges();
 
             return Redirect("IndexAcao");
+            }
+            return View("Editar", acao);
         }
 
         public IActionResult Apagar(int id)
