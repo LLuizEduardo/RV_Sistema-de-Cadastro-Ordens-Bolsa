@@ -23,7 +23,6 @@
                 <div class="col">
                     <label class="text-light">Data do Pregão</label>
                     <input type="date" class="form-control" asp-for="Data">
-                    @Html.ValidationMessageFor(x => x.Data)
                 </div>
 
                 <div class="col">
@@ -33,19 +32,16 @@
                         <option value="ITSA4"> ITSA4</option>
                         <option value="VALE3"> VALE3</option>
                     </select>
-                    @Html.ValidationMessageFor(x => x.Papel)
                 </div>
 
                 <div class="col">
                     <label class="text-light">Quantidade</label>
                     <input type="number" class="form-control" asp-for="Quantidade" placeholder="100">
-                    @Html.ValidationMessageFor(x => x.Quantidade)
                 </div>
 
                 <div class="col text-light">
                     <label>Valor Unitário</label>
                     <input type="number" class="form-control" asp-for="Valor" placeholder="0,00">
-                    @Html.ValidationMessageFor(x => x.Valor)
                 </div>
 
                 <div class="col">
@@ -67,10 +63,6 @@
             </div>
 
             <br />
-
-            <div class="text-light">
-                @Html.ValidationMessageFor(x => x.Data, "Preencha todos os campos")
-            </div>
 
             <button type="submit" asp-controller="Acao" asp-action="Salvar" class="btn btn-primary"> Salvar</button>
         </div>
