@@ -3,6 +3,26 @@
     ViewData["Title"] = "Ações";
 }
 
+
+
+@if (TempData["MensagemSucesso"] != null)
+ {
+<div class="alert alert-success" role="alert">
+    <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">x</button>
+    Sucesso
+</div>
+ }
+
+
+@if (TempData["MensagemErro"] != null)
+ {
+<div class="alert alert-danger" role="alert">
+    <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">x</button>
+    Erro
+</div>
+ }
+
+
 <br />
 
 <div class="text-center">
