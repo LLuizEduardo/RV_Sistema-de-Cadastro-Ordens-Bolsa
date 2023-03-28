@@ -13,7 +13,7 @@ namespace RV
             _bancoContent = bancoContent;
         }
 
-        public IActionResult Cadastro()
+        public IActionResult Salvar()
         {
             return View();
         }
@@ -34,7 +34,8 @@ namespace RV
 
                 return RedirectToAction("IndexAcao");
             }
-            return RedirectToAction("Cadastro");
+            //return RedirectToAction("Cadastro");
+            return View(acao);
         }
         
         public IActionResult Editar(AcaoModel acao)
