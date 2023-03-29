@@ -27,25 +27,21 @@ namespace RV
         [HttpPost]
         public IActionResult Salvar(AcaoModel acao)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    _bancoContent.Acoes.Add(acao);
-                    TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
-                    _bancoContent.SaveChanges();
+                _bancoContent.Acoes.Add(acao);
+                TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
+                _bancoContent.SaveChanges();
 
-                    return RedirectToAction("IndexAcao");
-                }
-                return View(acao);
-            }
-            catch (System.Exception erro)
-            {
-                TempData["MensagemErro"] = $"Erro ao cadastrar: {erro.Message}";
                 return RedirectToAction("IndexAcao");
             }
+            else
+            {
+                TempData["MensagemErro"] = $"Erro ao cadastrar:";
+                return View(acao);
+            }
         }
-        
+
         public IActionResult Editar(AcaoModel acao)
         {
             AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == acao.Id);
@@ -57,10 +53,10 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
-            _bancoContent.Acoes.Update(acao);
-            _bancoContent.SaveChanges();
+                _bancoContent.Acoes.Update(acao);
+                _bancoContent.SaveChanges();
 
-            return Redirect("IndexAcao");
+                return Redirect("IndexAcao");
             }
             return View("Editar", acao);
         }
