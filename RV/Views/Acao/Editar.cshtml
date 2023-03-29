@@ -3,7 +3,13 @@
     ViewData["Title"] = "Edição de ordens";
 }
 
-
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger text-center" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">x</button>
+        @TempData["MensagemErro"]
+    </div>
+}
 
 <body class="bg-dark">
 
@@ -12,7 +18,7 @@
     </div>
 
     <form asp-controller="Acao" asp-action="Editar" method="post">
-        
+
         <input type="hidden" asp-for="Id" />
 
         <div>
@@ -26,7 +32,7 @@
                 </div>
 
                 <div class="col">
-                    <select class="form-control" asp-for="Papel" >
+                    <select class="form-control" asp-for="Papel">
                         <option selected> @Model.Papel</option>
                         <option value="ITSA4"> ITSA4</option>
                         <option value="VALE3"> VALE3</option>
