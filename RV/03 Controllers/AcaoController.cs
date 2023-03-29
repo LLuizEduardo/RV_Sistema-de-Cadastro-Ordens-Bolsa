@@ -37,7 +37,7 @@ namespace RV
             }
             else
             {
-                TempData["MensagemErro"] = $"Erro ao cadastrar:";
+                TempData["MensagemErro"] = "Erro ao cadastrar. Avalie se todos os campos estão preenchidos.";
                 return View(acao);
             }
         }
@@ -54,11 +54,16 @@ namespace RV
             if (ModelState.IsValid)
             {
                 _bancoContent.Acoes.Update(acao);
+                TempData["MensagemSucesso"] = "Ordem editada com sucesso";
                 _bancoContent.SaveChanges();
 
                 return Redirect("IndexAcao");
             }
-            return View("Editar", acao);
+            else
+            {
+                TempData["MensagemErro"] = "Erro ao editar. Avalie se todos os campos estão corretos.";
+                return View("Editar", acao);
+            }
         }
 
         public IActionResult Apagar(int id)
