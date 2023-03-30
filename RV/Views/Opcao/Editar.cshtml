@@ -69,6 +69,19 @@
                         <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
+
+                <div class="col">
+                    <label class="text-light">Tipo:</label>
+                    <select class="form-control" asp-for="Tipo">
+                        <option selected>@Model.Tipo</option>
+                        <option value="Put"> Put</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Data de Vencimento</label>
+                    <input type="date" value="@Model.Vencimento.ToString().Substring(0, 10)" class="form-control" asp-for="Vencimento">
+                </div>
             </div>
             <br />
 
