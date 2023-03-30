@@ -29,6 +29,7 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
+                opcaoe.Opcao = opcaoe.Opcao.ToUpper();
                 _bancoContent.Opcoes.Add(opcaoe);
                 TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
                 _bancoContent.SaveChanges();
