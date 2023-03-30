@@ -32,11 +32,7 @@
                 </div>
 
                 <div class="col">
-                    <select class="form-control" asp-for="Papel">
-                        <option selected> @Model.Papel</option>
-                        <option value="ITSA4"> ITSA4</option>
-                        <option value="VALE3"> VALE3</option>
-                    </select>
+                    <input type="text" class="form-control" asp-for="Opcao" value="@Model.Opcao" placeholder="Opção">
                 </div>
 
                 <div class="col">
@@ -60,6 +56,17 @@
                         <option selected> @Model.Corretora</option>
                         <option value="Genial"> Genial</option>
                         <option value="Clear"> Clear</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+
+            <div>
+                <div class="col">
+                    <select class="form-control" asp-for="Papel">
+                        <option selected> @Model.Papel</option>
+                        <option value="ITSA4"> ITSA4</option>
+                        <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
             </div>

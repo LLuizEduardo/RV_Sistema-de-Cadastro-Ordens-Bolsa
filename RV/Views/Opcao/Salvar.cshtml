@@ -34,12 +34,8 @@
                 </div>
 
                 <div class="col">
-                    <label class="text-light">Papel</label>
-                    <select class="form-control" asp-for="Papel">
-                        <option selected> Selecione</option>
-                        <option value="ITSA4"> ITSA4</option>
-                        <option value="VALE3"> VALE3</option>
-                    </select>
+                       <label class="text-light">Opção</label>
+                    <input type="text" class="form-control" asp-for="Opcao" placeholder="ABCDA12">
                 </div>
 
                 <div class="col">
@@ -69,10 +65,39 @@
                 </div>
 
             </div>
-
             <br />
 
-            <button type="submit" asp-controller="Opcoes" asp-action="Salvar" class="btn btn-primary"> Salvar</button>
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Papel</label>
+                    <select class="form-control" asp-for="Papel">
+                        <option selected> Selecione</option>
+                        <option value="ITSA4"> ITSA4</option>
+                        <option value="VALE3"> VALE3</option>
+                    </select>
+                </div>
+
+                <div class="col text-light">
+                    <label>Strike</label>
+                    <input type="number" class="form-control" asp-for="Strike" placeholder="0,00">
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Tipo:</label>
+                    <select class="form-control" asp-for="Tipo">
+                        <option selected>Call</option>
+                        <option value="Put"> Put</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Data de Vencimento</label>
+                    <input type="date" class="form-control" asp-for="Vencimento">
+                </div>
+            </div>
+            <br />
+
+            <button type="submit" asp-controller="Opcao" asp-action="Salvar" class="btn btn-primary"> Salvar</button>
         </div>
     </form>
 

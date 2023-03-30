@@ -25,11 +25,11 @@ namespace RV
         }
 
         [HttpPost]
-        public IActionResult Salvar(OpcaoModel opcao)
+        public IActionResult Salvar(OpcaoModel opcaoe)
         {
             if (ModelState.IsValid)
             {
-                _bancoContent.Opcoes.Add(opcao);
+                _bancoContent.Opcoes.Add(opcaoe);
                 TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
                 _bancoContent.SaveChanges();
 
@@ -38,22 +38,22 @@ namespace RV
             else
             {
                 TempData["MensagemErro"] = "Erro ao cadastrar. Avalie se todos os campos estão preenchidos.";
-                return View(opcao);
+                return View(opcaoe);
             }
         }
 
-        public IActionResult Editar(OpcaoModel opcao)
+        public IActionResult Editar(OpcaoModel opcaoe)
         {
-            OpcaoModel opcaoDB = _bancoContent.Opcoes.FirstOrDefault(x => x.Id == opcao.Id);
+            OpcaoModel opcaoDB = _bancoContent.Opcoes.FirstOrDefault(x => x.Id == opcaoe.Id);
             return View(opcaoDB);
         }
 
         [HttpPost]
-        public IActionResult Atualizar(OpcaoModel opcao)
+        public IActionResult Atualizar(OpcaoModel opcaoe)
         {
             if (ModelState.IsValid)
             {
-                _bancoContent.Opcoes.Update(opcao);
+                _bancoContent.Opcoes.Update(opcaoe);
                 TempData["MensagemSucesso"] = "Ordem editada com sucesso";
                 _bancoContent.SaveChanges();
 
@@ -62,7 +62,7 @@ namespace RV
             else
             {
                 TempData["MensagemErro"] = "Erro ao editar. Avalie se todos os campos estão corretos.";
-                return View("Editar", opcao);
+                return View("Editar", opcaoe);
             }
         }
 
