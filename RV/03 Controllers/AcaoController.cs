@@ -68,10 +68,17 @@ namespace RV
 
         public IActionResult Apagar(int id)
         {
-            AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
-            _bancoContent.Acoes.Remove(acaoDB);
-            _bancoContent.SaveChanges();
-
+            try
+            {
+                AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
+                _bancoContent.Acoes.Remove(acaoDB);
+                _bancoContent.SaveChanges();
+                TempData["MensagemSucesso"] = "Ordem apagada com sucesso";
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Ocorreu um erro. Tente novamente.";
+            }
             return RedirectToAction("IndexAcao");
         }
     }

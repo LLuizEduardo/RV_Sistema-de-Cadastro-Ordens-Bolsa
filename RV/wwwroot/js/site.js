@@ -6,3 +6,7 @@
 $('.close-alert').click(function () {
     $('.alert').hide('hide');
 });
+
+$(".close-alert").delay(5000).slideUp(200, function () {
+    $(this).alert('close');
+});
