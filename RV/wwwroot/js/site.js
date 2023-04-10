@@ -10,3 +10,7 @@ $('.close-alert').click(function () {
 $(".close-alert").delay(5000).slideUp(200, function () {
     $(this).alert('close');
 });
+
+$("#moeda").change(function (e) {
+    $("#moeda").val($("#moeda").val().replace('.',','));
+});
