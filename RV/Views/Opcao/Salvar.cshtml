@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col">
-                       <label class="text-light">Opção</label>
+                    <label class="text-light">Opção</label>
                     <input type="text" class="form-control" asp-for="Opcao" placeholder="ABCDA12">
                 </div>
 
@@ -45,7 +45,7 @@
 
                 <div class="col text-light">
                     <label>Valor Unitário</label>
-                    <input type="text" class="form-control" asp-for="Valor" placeholder="0,00">
+                    <input type="text" class="form-control" asp-for="Valor" placeholder="R$ 0,00">
                 </div>
 
                 <div class="col">
@@ -79,7 +79,7 @@
 
                 <div class="col text-light">
                     <label>Strike</label>
-                    <input type="text" class="form-control" asp-for="Strike" placeholder="0,00">
+                    <input type="text" class="form-control" asp-for="Strike" placeholder="R$ 0,00">
                 </div>
 
                 <div class="col">
@@ -97,7 +97,8 @@
             </div>
             <br />
 
-            <button type="submit" asp-controller="Opcao" asp-action="Salvar" class="btn btn-primary"> Salvar</button>
+            <button type="submit" asp-controller="Opcao" asp-action="Salvar" class="btn btn-primary">Salvar</button>
+            <button type="submit" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</button>
         </div>
     </form>
 

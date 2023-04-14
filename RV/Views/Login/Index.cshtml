@@ -1,0 +1,32 @@
+﻿@*@{
+    ViewData["Title"] = "Login";
+}*@
+
+<body class="bg-dark">
+
+    <div class="text-center">
+        <h2 class="text-light">Login</h2>
+    </div>
+
+    <br />
+
+    <div class="row" id="tela-login">
+        <div class="text-center">
+            <div>
+                <input type="email" class="form-control" name="user" placeholder="E-mail" />
+            </div>
+            <br />
+            <div>
+                <input type="password" class="form-control" name="pass" placeholder="Senha" />
+            </div>
+            <br />
+            <div class="text-center">
+                <a role="button" class="btn btn-primary" asp-controller="Home" asp-action="Index">Login</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
