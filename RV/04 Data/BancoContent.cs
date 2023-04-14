@@ -14,5 +14,6 @@ namespace RV
 
         public DbSet<AcaoModel> Acoes { get; set; }
         public DbSet<OpcaoModel> Opcoes { get; set; }
+        public DbSet<UsuarioModel> Usuarios { get; set; }
     }
 }
