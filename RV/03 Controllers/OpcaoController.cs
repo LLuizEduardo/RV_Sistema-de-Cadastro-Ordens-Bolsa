@@ -17,7 +17,7 @@ namespace RV
         {
             return View();
         }
-        public IActionResult Indexopcao()
+        public IActionResult Index()
         {
             List<OpcaoModel> opcoes = _bancoContent.Opcoes.ToList();
 
@@ -34,7 +34,7 @@ namespace RV
                 TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
                 _bancoContent.SaveChanges();
 
-                return RedirectToAction("Indexopcao");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -58,7 +58,7 @@ namespace RV
                 TempData["MensagemSucesso"] = "Ordem editada com sucesso";
                 _bancoContent.SaveChanges();
 
-                return Redirect("Indexopcao");
+                return Redirect("Index");
             }
             else
             {
@@ -80,7 +80,7 @@ namespace RV
             {
                 TempData["MensagemErro"] = "Ocorreu um erro. Tente novamente.";
             }
-            return RedirectToAction("Indexopcao");
+            return RedirectToAction("Index");
         }
     }
 }

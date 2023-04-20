@@ -17,7 +17,7 @@ namespace RV
         {
             return View();
         }
-        public IActionResult IndexAcao()
+        public IActionResult Index()
         {
             List<AcaoModel> acoes = _bancoContent.Acoes.ToList();
 
@@ -33,7 +33,7 @@ namespace RV
                 TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
                 _bancoContent.SaveChanges();
 
-                return RedirectToAction("IndexAcao");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -57,7 +57,7 @@ namespace RV
                 TempData["MensagemSucesso"] = "Ordem editada com sucesso";
                 _bancoContent.SaveChanges();
 
-                return Redirect("IndexAcao");
+                return Redirect("Index");
             }
             else
             {
@@ -79,7 +79,7 @@ namespace RV
             {
                 TempData["MensagemErro"] = "Ocorreu um erro. Tente novamente.";
             }
-            return RedirectToAction("IndexAcao");
+            return RedirectToAction("Index");
         }
     }
 }
