@@ -66,6 +66,10 @@ namespace RV
             }
         }
 
+        public IActionResult ApagarConfirmacao()
+        {
+            return View();
+        }
         public IActionResult Apagar(int id)
         {
             try
