@@ -1,0 +1,82 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Edição de usuarios";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger text-center" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">x</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<input type="hidden" asp-for="Id" />
+
+@*<body class="bg-dark">
+
+    <br />
+    <div class="text-center">
+        <h1 class="text-light display-4"> Edição de ordens</h1>
+    </div>
+
+    <br />
+    <form asp-controller="Acao" asp-action="Editar" method="post">
+
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <h3 class="text-light"> Editar ordens de Ações</h3>
+            <br />
+
+            <div class="row">
+
+                <div class="col">
+                    <label class="text-light">Data do Pregão</label>
+                    <input type="text" value="@Model.Data.ToString().Substring(0, 10)" class="form-control" asp-for="Data">
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Papel</label>
+                    <select class="form-control" asp-for="Papel">
+                        <option selected> @Model.Papel</option>
+                        <option value="ITSA4"> ITSA4</option>
+                        <option value="VALE3"> VALE3</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Quantidade</label>
+                    <input type="number" class="form-control" asp-for="Quantidade" value="@Model.Quantidade">
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Valor</label>
+                    <input type="text" class="form-control" asp-for="Valor" value="@Model.Valor">
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Ordem de:</label>
+                    <select class="form-control" asp-for="Ordem">
+                        <option selected> @Model.Ordem</option>
+                        <option value="Compra"> Compra</option>
+                        <option value="Venda"> Venda</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label class="text-light">Correção</label>
+                    <select class="form-control" asp-for="Corretora">
+                        <option selected> @Model.Corretora</option>
+                        <option value="Genial"> Genial</option>
+                        <option value="Clear"> Clear</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+
+            <button type="submit" asp-controller="Acao" asp-action="Index" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" asp-controller="Acao" asp-action="Atualizar" class="btn btn-primary"> Salvar</button>
+        </div>
+    </form>
+
+</body>*@
