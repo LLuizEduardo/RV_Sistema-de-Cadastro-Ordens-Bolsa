@@ -24,57 +24,40 @@
 
         <input type="hidden" asp-for="Id" />
         <div>
-            @*
-                <h3 class="text-light"> Editar ordens de Ações</h3>
-                <br />
-
-                <div class="row">
-
-                    <div class="col">
-                        <label class="text-light">Data do Pregão</label>
-                        <input type="text" value="@Model.Data.ToString().Substring(0, 10)" class="form-control" asp-for="Data">
-                    </div>
-
-                    <div class="col">
-                        <label class="text-light">Papel</label>
-                        <select class="form-control" asp-for="Papel">
-                            <option selected> @Model.Papel</option>
-                            <option value="ITSA4"> ITSA4</option>
-                            <option value="VALE3"> VALE3</option>
-                        </select>
-                    </div>
-
-                    <div class="col">
-                        <label class="text-light">Quantidade</label>
-                        <input type="number" class="form-control" asp-for="Quantidade" value="@Model.Quantidade">
-                    </div>
-
-                    <div class="col">
-                        <label class="text-light">Valor</label>
-                        <input type="text" class="form-control" asp-for="Valor" value="@Model.Valor">
-                    </div>
-
-                    <div class="col">
-                        <label class="text-light">Ordem de:</label>
-                        <select class="form-control" asp-for="Ordem">
-                            <option selected> @Model.Ordem</option>
-                            <option value="Compra"> Compra</option>
-                            <option value="Venda"> Venda</option>
-                        </select>
-                    </div>
-
-                    <div class="col">
-                        <label class="text-light">Correção</label>
-                        <select class="form-control" asp-for="Corretora">
-                            <option selected> @Model.Corretora</option>
-                            <option value="Genial"> Genial</option>
-                            <option value="Clear"> Clear</option>
-                        </select>
-                    </div>
+            <h3 class="text-light"> Editar o usuário:</h3>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Nome</label>
+                    <input type="text" value="@Model.Nome" class="form-control" asp-for="Nome">
                 </div>
-                <br />
-
-            *@
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">E-mail</label>
+                    <input type="email" value="@Model.Email" class="form-control" asp-for="Email">
+                </div>
+                <div class="col">
+                    <label class="text-light">Perfil</label>
+                    <select class="form-control" asp-for="Perfil">
+                        <option selected> @Model.Perfil</option>
+                        <option value="Teste"> Teste</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Login</label>
+                    <input type="text" value="@Model.Login" class="form-control" asp-for="Login">
+                </div>
+                <div class="col">
+                    <label class="text-light">Senha</label>
+                    <input type="password" class="form-control" asp-for="Senha" placeholder="Digite nova senha">
+                </div>
+            </div>
+            <br />
             <button type="submit" asp-controller="Usuario" asp-action="Index" class="btn btn-secondary">Cancelar</button>
             <button type="submit" asp-controller="Usuario" asp-action="Atualizar" class="btn btn-primary"> Salvar</button>
         </div>
