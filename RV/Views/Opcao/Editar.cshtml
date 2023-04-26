@@ -33,7 +33,7 @@
 
                 <div class="col">
                     <label class="text-light">Data do Pregão</label>
-                    <input type="text" value="@Model.Data.ToString().Substring(0, 10)" class="form-control" asp-for="Data">
+                    <input type="date" value="@Model.Data.ToString("yyyy-MM-dd")" class="form-control" asp-for="Data">
                 </div>
 
                 <div class="col">
@@ -96,7 +96,7 @@
 
                 <div class="col">
                     <label class="text-light">Data de Vencimento</label>
-                    <input type="text" value="@Model.Vencimento.ToString().Substring(0, 10)" class="form-control" asp-for="Vencimento">
+                    <input type="date" value="@Model.Vencimento.ToString("yyyy-MM-dd")" class="form-control" asp-for="Vencimento">
                 </div>
             </div>
             <br />

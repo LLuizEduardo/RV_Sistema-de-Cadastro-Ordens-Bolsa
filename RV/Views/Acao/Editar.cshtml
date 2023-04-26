@@ -32,7 +32,7 @@
 
                 <div class="col">
                     <label class="text-light">Data do Pregão</label>
-                    <input type="text" value="@Model.Data.ToString().Substring(0, 10)" class="form-control" asp-for="Data">
+                    <input type="date" value="@Model.Data.ToString("yyyy-MM-dd")" class="form-control" asp-for="Data">
                 </div>
 
                 <div class="col">
