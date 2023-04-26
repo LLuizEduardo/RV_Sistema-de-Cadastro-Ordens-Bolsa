@@ -12,5 +12,32 @@ $(".close-alert").delay(5000).slideUp(200, function () {
 });
 
 $("#moeda").change(function (e) {
-    $("#moeda").val($("#moeda").val().replace('.',','));
+    $("#moeda").val($("#moeda").val().replace('.', ','));
 });
+
+
+
+$("#dataV").change(
+    function pegarData() {
+        let campoData = $("#dataV").val();
+        let ano = campoData.substring(0, 4);
+        let mes = parseInt(campoData.substring(5, 7));
+        let thirdFriday = new Date(ano, mes - 1, 15);
+
+        while (thirdFriday.getDay() !== 5) {
+            thirdFriday.setDate(thirdFriday.getDate() + 1);
+        }
+
+        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+    }
+);
+
+
+function sufixo(valor) {
+    if (valor < 10) {
+        return "-0" + valor;
+    }
+    else {
+        return "-" + valor;
+    }
+}
