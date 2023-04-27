@@ -59,13 +59,18 @@ function sufixo(valor) {
 
 $("#campoOpcao").change(
     function pegarLetra() {
-        let conteudo = $("#campoOpcao").val().toUpperCase().substring(4, 5);
-        //alert(conteudo);
-        let item = String(dicionarioOpcoes().get(conteudo)).split(',');
-        
 
+        //CAMPO DO CODIGO DA OPÇÃO
+        let conteudo = $("#campoOpcao").val();
+        conteudo.toUpperCase();
+
+
+        //TRATAMENTO
+        let item = String(dicionarioOpcoes().get(conteudo.substring(4, 5))).split(',');
+
+
+        //CAMPO DA DATA DE VENCIMENTO
         let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
-
         while (thirdFriday.getDay() !== 5) {
             thirdFriday.setDate(thirdFriday.getDate() + 1);
         }
@@ -73,7 +78,8 @@ $("#campoOpcao").change(
         $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
 
 
-        $("#tipo").val(item[1]); //OK
+        //CAMPO DO TIPO
+        $("#tipo").val(item[1]);
     }
 );
 
