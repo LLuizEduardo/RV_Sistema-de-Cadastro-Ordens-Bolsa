@@ -17,20 +17,35 @@ $("#moeda").change(function (e) {
 
 
 
-$("#dataV").change(
-    function pegarData() {
-        let campoData = $("#dataV").val();
-        let ano = campoData.substring(0, 4);
-        let mes = parseInt(campoData.substring(5, 7));
-        let thirdFriday = new Date(ano, mes - 1, 15);
+//$("#dataV").change(
+//    function pegarData() {
+//        let campoData = $("#dataV").val();
+//        let ano = campoData.substring(0, 4);
+//        let mes = parseInt(campoData.substring(5, 7));
+//        let thirdFriday = new Date(ano, mes - 1, 15);
 
-        while (thirdFriday.getDay() !== 5) {
-            thirdFriday.setDate(thirdFriday.getDate() + 1);
-        }
+//        while (thirdFriday.getDay() !== 5) {
+//            thirdFriday.setDate(thirdFriday.getDate() + 1);
+//        }
 
-        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
-    }
-);
+//        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+//    }
+//);
+
+//$("#dataV").change(
+//    function pegarData() {
+//        let campoData = $("#dataV").val();
+//        //let ano = campoData.substring(0, 4);
+//        let mes = parseInt(campoData.substring(5, 7));
+//        let thirdFriday = new Date(2000, mes - 1, 15);
+
+//        while (thirdFriday.getDay() !== 5) {
+//            thirdFriday.setDate(thirdFriday.getDate() + 1);
+//        }
+
+//        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+//    }
+//);
 
 
 function sufixo(valor) {
@@ -48,8 +63,17 @@ $("#campoOpcao").change(
         //alert(conteudo);
         let item = String(dicionarioOpcoes().get(conteudo)).split(',');
         
-        $("#mes").val(item[0])
-        $("#tipo").val(item[1])
+
+        let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
+
+        while (thirdFriday.getDay() !== 5) {
+            thirdFriday.setDate(thirdFriday.getDate() + 1);
+        }
+
+        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+
+
+        $("#tipo").val(item[1]); //OK
     }
 );
 
