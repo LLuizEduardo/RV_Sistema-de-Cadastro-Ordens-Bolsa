@@ -27,7 +27,7 @@
                 </div>
                 <div class="col">
                     <label class="text-light">Opção</label>
-                    <input type="text" class="form-control" asp-for="Opcao" placeholder="ABCDA12">
+                    <input type="text" class="form-control" id="campoOpcao" asp-for="Opcao" placeholder="ABCDA12">
                 </div>
                 <div class="col">
                     <label class="text-light">Quantidade</label>
@@ -67,22 +67,28 @@
                     <input type="text" class="form-control" asp-for="Strike" placeholder="R$ 0,00">
                 </div>
                 <div class="col">
-                    <label class="text-light">Tipo:</label>
-                    <select class="form-control" asp-for="Tipo">
-                        <option selected>Call</option>
-                        <option value="Put"> Put</option>
-                    </select>
-                </div>
-                <div class="col">
                     <label class="text-light">Data de Vencimento (Input)</label>
                     <input type="date" class="form-control" id="dataV">
                 </div>
             </div>
             <br />
-            <div>
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Tipo:</label>
+                    <select class="form-control" id="tipo" asp-for="Tipo">
+                        <option selected>Call</option>
+                        <option value="Put"> Put</option>
+                    </select>
+                </div>
                 <div class="col">
                     <label class="text-light">Data de Vencimento</label>
                     <input type="date" class="form-control" id="dataVencimento" asp-for="Vencimento">
+                </div>
+
+
+                <div class="col">
+                    <label class="text-light">Mes</label>
+                    <input type="number" class="form-control" id="mes">
                 </div>
             </div>
             <br />

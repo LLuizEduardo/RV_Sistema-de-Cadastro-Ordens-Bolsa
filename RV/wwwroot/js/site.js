@@ -41,3 +41,31 @@ function sufixo(valor) {
         return "-" + valor;
     }
 }
+
+$("#campoOpcao").change(
+    function pegarLetra() {
+        let conteudo = $("#campoOpcao").val().toUpperCase().substring(4, 5);
+        //alert(conteudo);
+        let item = String(dicionarioOpcoes().get(conteudo)).split(',');
+        
+        $("#mes").val(item[0])
+        $("#tipo").val(item[1])
+    }
+);
+
+
+function dicionarioOpcoes() {
+    let i = 1;
+    let mes;
+    let tipo;
+
+    const dic = new Map();
+    for (let letter = 'A'.charCodeAt(0); letter <= 'X'.charCodeAt(0); letter++) {
+        mes = (i > 12) ? i - 12 : i;
+        tipo = (i > 12) ? "Put" : "Call";
+        dic.set(String.fromCharCode(letter), mes + "," + tipo);
+        i++;
+    }
+
+    return dic;
+}
