@@ -16,38 +16,6 @@ $("#moeda").change(function (e) {
 });
 
 
-
-//$("#dataV").change(
-//    function pegarData() {
-//        let campoData = $("#dataV").val();
-//        let ano = campoData.substring(0, 4);
-//        let mes = parseInt(campoData.substring(5, 7));
-//        let thirdFriday = new Date(ano, mes - 1, 15);
-
-//        while (thirdFriday.getDay() !== 5) {
-//            thirdFriday.setDate(thirdFriday.getDate() + 1);
-//        }
-
-//        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
-//    }
-//);
-
-//$("#dataV").change(
-//    function pegarData() {
-//        let campoData = $("#dataV").val();
-//        //let ano = campoData.substring(0, 4);
-//        let mes = parseInt(campoData.substring(5, 7));
-//        let thirdFriday = new Date(2000, mes - 1, 15);
-
-//        while (thirdFriday.getDay() !== 5) {
-//            thirdFriday.setDate(thirdFriday.getDate() + 1);
-//        }
-
-//        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
-//    }
-//);
-
-
 function sufixo(valor) {
     if (valor < 10) {
         return "-0" + valor;
@@ -62,7 +30,8 @@ $("#campoOpcao").change(
 
         //CAMPO DO CODIGO DA OPÇÃO
         let conteudo = $("#campoOpcao").val();
-        conteudo.toUpperCase();
+        $("#campoOpcao").val(conteudo.toUpperCase());
+        conteudo = conteudo.toUpperCase();
 
 
         //TRATAMENTO
@@ -83,6 +52,29 @@ $("#campoOpcao").change(
     }
 );
 
+
+
+$("#anoVencimento").change(
+    function pegarLetra() {
+
+
+        //TRATAMENTO
+        let item = String(dicionarioOpcoes().get($("#campoOpcao").val().substring(4, 5))).split(',');
+
+
+        //CAMPO DA DATA DE VENCIMENTO
+        let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
+        while (thirdFriday.getDay() !== 5) {
+            thirdFriday.setDate(thirdFriday.getDate() + 1);
+        }
+
+        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+
+
+        //CAMPO DO TIPO
+        $("#tipo").val(item[1]);
+    }
+);
 
 function dicionarioOpcoes() {
     let i = 1;
