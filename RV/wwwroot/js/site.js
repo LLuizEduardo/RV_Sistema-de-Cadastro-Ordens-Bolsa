@@ -29,26 +29,30 @@ $("#campoOpcao").change(
     function pegarLetra() {
 
         //CAMPO DO CODIGO DA OPÇÃO
-        let conteudo = $("#campoOpcao").val();
-        $("#campoOpcao").val(conteudo.toUpperCase());
-        conteudo = conteudo.toUpperCase();
+        if ($("#campoOpcao").val() != '' && $("#campoOpcao").val() != null) {
+            let conteudo = $("#campoOpcao").val();
+            $("#campoOpcao").val(conteudo.toUpperCase());
+            conteudo = conteudo.toUpperCase();
 
 
-        //TRATAMENTO
-        let item = String(dicionarioOpcoes().get(conteudo.substring(4, 5))).split(',');
+            //TRATAMENTO
+            let item = String(dicionarioOpcoes().get(conteudo.substring(4, 5))).split(',');
 
 
-        //CAMPO DA DATA DE VENCIMENTO
-        let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
-        while (thirdFriday.getDay() !== 5) {
-            thirdFriday.setDate(thirdFriday.getDate() + 1);
+            //CAMPO DA DATA DE VENCIMENTO
+            let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
+            while (thirdFriday.getDay() !== 5) {
+                thirdFriday.setDate(thirdFriday.getDate() + 1);
+            }
+
+            $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+
+
+            //CAMPO DO TIPO
+            $("#tipo").val(item[1]);
+        } else {
+            alert("Necessário Preencher o campo!");
         }
-
-        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
-
-
-        //CAMPO DO TIPO
-        $("#tipo").val(item[1]);
     }
 );
 
@@ -57,22 +61,26 @@ $("#campoOpcao").change(
 $("#anoVencimento").change(
     function pegarLetra() {
 
+        if ($("#campoOpcao").val() != '' && $("#campoOpcao").val() != null) {
 
-        //TRATAMENTO
-        let item = String(dicionarioOpcoes().get($("#campoOpcao").val().substring(4, 5))).split(',');
+            //TRATAMENTO
+            let item = String(dicionarioOpcoes().get($("#campoOpcao").val().substring(4, 5))).split(',');
 
 
-        //CAMPO DA DATA DE VENCIMENTO
-        let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
-        while (thirdFriday.getDay() !== 5) {
-            thirdFriday.setDate(thirdFriday.getDate() + 1);
+            //CAMPO DA DATA DE VENCIMENTO
+            let thirdFriday = new Date($("#anoVencimento").val(), item[0] - 1, 15);
+            while (thirdFriday.getDay() !== 5) {
+                thirdFriday.setDate(thirdFriday.getDate() + 1);
+            }
+
+            $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
+
+
+            //CAMPO DO TIPO
+            $("#tipo").val(item[1]);
+        } else {
+            alert("Necessário Preencher o campo!");
         }
-
-        $("#dataVencimento").val(thirdFriday.getFullYear() + sufixo(thirdFriday.getMonth() + 1) + sufixo(thirdFriday.getDate()));
-
-
-        //CAMPO DO TIPO
-        $("#tipo").val(item[1]);
     }
 );
 
