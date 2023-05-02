@@ -20,7 +20,7 @@
     <div class="text-right">
         <a role="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-sm">Voltar</a>
         <a role="button" class="btn btn-info btn-sm" asp-controller="Opcao" asp-action="Salvar">Nova</a>
-        <button class="btn btn-primary btn-sm" onclick="exibir0()">Editar</button>
+        <button class="btn btn-primary btn-sm" onclick="exibir(10,'thEdicaoOp')">Editar</button>
     </div>
     <br />
     <table class="table table-dark table-striped rounded-sm">
@@ -76,17 +76,5 @@
                 </tbody>
             }
         }
-
     </table>
 </body>
-<script>
-    function exibir0() {
-        const hy = document.getElementsByTagName('td');
-
-        for (var i = 10; i < hy.length; i = i + 11) {
-
-            document.getElementsByTagName('td')[i].style.display = "block";
-        }
-        document.getElementById('thEdicaoOp').style.display = "block";
-    }
-</script>

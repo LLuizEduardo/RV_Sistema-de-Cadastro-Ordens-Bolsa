@@ -20,7 +20,7 @@
     <div class="text-right">
         <a role="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-sm">Voltar</a>
         <a role="button" class="btn btn-info btn-sm" asp-controller="Acao" asp-action="Salvar">Nova</a>
-        <button class="btn btn-primary btn-sm" onclick="exibir()">Editar</button>
+        <button class="btn btn-primary btn-sm" onclick="exibir(6,'thEdicaoAc')">Editar</button>
     </div>
     <br />
     <table class="table table-dark table-striped rounded-sm">
@@ -32,7 +32,7 @@
                 <th scope="col">Valor</th>
                 <th scope="col">Ordem</th>
                 <th scope="col">Corretora</th>
-                <th scope="col" id="thEdicao" style="display:none">Edição</th>
+                <th scope="col" id="thEdicaoAc" style="display:none">Edição</th>
             </tr>
         </thead>
 
@@ -68,17 +68,5 @@
                 </tbody>
             }
         }
-
     </table>
 </body>
-<script>
-    function exibir() {
-        const hy = document.getElementsByTagName('td');
-
-        for (var i = 6; i < hy.length; i = i + 7) {
-
-            document.getElementsByTagName('td')[i].style.display = "block";
-        }
-        document.getElementById('thEdicao').style.display = "block";
-    }
-</script>
