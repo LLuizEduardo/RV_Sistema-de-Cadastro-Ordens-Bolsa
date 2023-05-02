@@ -29,7 +29,11 @@ $("#campoOpcao").change(
     function pegarLetra() {
 
         //CAMPO DO CODIGO DA OPÇÃO
-        if ($("#campoOpcao").val() != '' && $("#campoOpcao").val() != null) {
+        const valor = $("#campoOpcao").val();
+
+        if (valor != '' && valor != null && valor.length > 4) {
+
+
             let conteudo = $("#campoOpcao").val();
             $("#campoOpcao").val(conteudo.toUpperCase());
             conteudo = conteudo.toUpperCase();
@@ -51,7 +55,7 @@ $("#campoOpcao").change(
             //CAMPO DO TIPO
             $("#tipo").val(item[1]);
         } else {
-            alert("Necessário Preencher o campo!");
+            alert("Necessário Preencher o campo corretamente!");
         }
     }
 );
@@ -61,7 +65,9 @@ $("#campoOpcao").change(
 $("#anoVencimento").change(
     function pegarLetra() {
 
-        if ($("#campoOpcao").val() != '' && $("#campoOpcao").val() != null) {
+        const valor = $("#campoOpcao").val();
+
+        if (valor != '' && valor != null && valor.length > 4) {
 
             //TRATAMENTO
             let item = String(dicionarioOpcoes().get($("#campoOpcao").val().substring(4, 5))).split(',');
