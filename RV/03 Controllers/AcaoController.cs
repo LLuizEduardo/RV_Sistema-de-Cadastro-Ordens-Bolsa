@@ -66,9 +66,10 @@ namespace RV
             }
         }
 
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(AcaoModel acao)
         {
-            return View();
+            AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == acao.Id);
+            return View(acaoDB);
         }
         public IActionResult Apagar(int id)
         {
