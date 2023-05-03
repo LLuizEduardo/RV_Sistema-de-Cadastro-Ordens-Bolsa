@@ -11,46 +11,34 @@
     </div>
 }
 
-<input type="hidden" asp-for="Id" />
 
 <body class="bg-dark">
-
-    <br />
     <div class="text-center">
         <h1 class="text-light display-4"> Edição de ordens</h1>
     </div>
-
     <br />
     <form asp-controller="Opcao" asp-action="Editar" method="post">
-
         <input type="hidden" asp-for="Id" />
-
         <div>
             <h3 class="text-light"> Editar ordens de Opções</h3>
             <br />
-
             <div class="row">
-
                 <div class="col">
                     <label class="text-light">Data do Pregão</label>
                     <input type="date" value="@Model.Data.ToString("yyyy-MM-dd")" class="form-control" asp-for="Data">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Opção</label>
                     <input class="form-control" value="@Model.Opcao" asp-for="Opcao">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Quantidade</label>
                     <input type="number" class="form-control" asp-for="Quantidade" value="@Model.Quantidade">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Valor</label>
                     <input type="text" class="form-control" asp-for="Valor" value="@Model.Valor">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Ordem de:</label>
                     <select class="form-control" asp-for="Ordem">
@@ -59,7 +47,6 @@
                         <option value="Venda"> Venda</option>
                     </select>
                 </div>
-
                 <div class="col">
                     <label class="text-light">Corretora</label>
                     <select class="form-control" asp-for="Corretora">
@@ -70,7 +57,6 @@
                 </div>
             </div>
             <br />
-
             <div class="row">
                 <div class="col">
                     <label class="text-light">Papel</label>
@@ -80,12 +66,10 @@
                         <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
-
                 <div class="col">
                     <label class="text-light">Strike</label>
                     <input type="text" class="form-control" asp-for="Strike" value="@Model.Strike">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Tipo:</label>
                     <select class="form-control" asp-for="Tipo">
@@ -93,17 +77,14 @@
                         <option value="Put"> Put</option>
                     </select>
                 </div>
-
                 <div class="col">
                     <label class="text-light">Data de Vencimento</label>
                     <input type="date" value="@Model.Vencimento.ToString("yyyy-MM-dd")" class="form-control" asp-for="Vencimento">
                 </div>
             </div>
             <br />
-
             <button type="submit" asp-controller="Opcao" asp-action="Index" class="btn btn-secondary">Cancelar</button>
             <button type="submit" asp-controller="Opcao" asp-action="Atualizar" class="btn btn-primary"> Salvar</button>
         </div>
     </form>
-
 </body>
