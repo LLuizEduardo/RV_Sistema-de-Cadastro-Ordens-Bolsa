@@ -35,7 +35,7 @@
                 </div>
                 <div class="col text-light">
                     <label>Valor Unitário</label>
-                    <input type="text" class="form-control currency" asp-for="Valor" placeholder="R$ 0,00">
+                    <input type="text" class="form-control" asp-for="Valor" placeholder="R$ 0,00" id="currencyOpcao" onchange="currencyTreatment('#currencyOpcao')">
                 </div>
                 <div class="col">
                     <label class="text-light">Ordem de:</label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col text-light">
                     <label>Strike</label>
-                    <input type="text" class="form-control" asp-for="Strike" placeholder="R$ 0,00">
+                    <input type="text" class="form-control" asp-for="Strike" placeholder="R$ 0,00" id="currencyStrike" onchange="currencyTreatment('#currencyStrike')">
                 </div>
                 <div class="col text-light">
                     <label>Ano</label>

@@ -9,3 +9,15 @@ function exibir(pos, botao) {
     }
     document.getElementById(botao).style.display = "block";
 }
+
+
+
+function currencyTreatment(id) {
+    const valor = $(id).val().replace('.', ',').split(',');
+
+    if (valor[1].length < 2) {
+        valor[1] = parseInt(valor[1] + '0');
+    }
+
+    $(id).val(valor[0] + ',' + valor[1]);
+};

@@ -11,21 +11,6 @@ $(".close-alert").delay(5000).slideUp(200, function () {
     $(this).alert('close');
 });
 
-//$("#moeda").change(function (e) {
-//    $("#moeda").val($("#moeda").val().replace('.', ','));
-//});
-
-$(".currency").change(function () {
-    const valor = $(".currency").val().replace('.', ',').split(',');
-
-    if (valor[1].length < 2) {
-        valor[1] = parseInt(valor[1] + '0');
-    }
-
-    $(".currency").val(valor[0] + ',' + valor[1]);
-});
-
-
 function sufixo(valor) {
     if (valor < 10) {
         return "-0" + valor;

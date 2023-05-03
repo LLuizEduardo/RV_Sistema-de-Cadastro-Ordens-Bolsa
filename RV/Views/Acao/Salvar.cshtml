@@ -49,7 +49,7 @@
 
                 <div class="col text-light">
                     <label>Valor Unitário</label>
-                    <input type="text" class="form-control currency" id="moeda" asp-for="Valor" asp-format="{0:#,###.00}" placeholder="R$ 0,00" />
+                    <input type="text" class="form-control" asp-for="Valor" asp-format="{0:#,###.00}" placeholder="R$ 0,00" id="currencyAcao" onchange="currencyTreatment('#currencyAcao')" />
                 </div>
 
                 <div class="col">
