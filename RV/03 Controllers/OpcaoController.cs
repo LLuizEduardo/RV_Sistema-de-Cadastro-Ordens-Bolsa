@@ -67,6 +67,11 @@ namespace RV
             }
         }
 
+        public IActionResult ApagarConfirmacao(OpcaoModel opcaoe)
+        {
+            OpcaoModel opcaoDB = _bancoContent.Opcoes.FirstOrDefault(x => x.Id == opcaoe.Id);
+            return View(opcaoDB);
+        }
         public IActionResult Apagar(int id)
         {
             try
