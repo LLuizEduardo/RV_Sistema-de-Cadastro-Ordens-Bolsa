@@ -30,7 +30,7 @@ namespace RV
             if (ModelState.IsValid)
             {
                 _bancoContent.Usuarios.Add(user);
-                TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
+                TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso";
                 _bancoContent.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -66,9 +66,10 @@ namespace RV
             }
         }
 
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(UsuarioModel user)
         {
-            return View();
+            UsuarioModel userDB = _bancoContent.Usuarios.FirstOrDefault(x => x.Id == user.Id);
+            return View(userDB);
         }
         public IActionResult Apagar(int id)
         {
@@ -77,7 +78,7 @@ namespace RV
                 UsuarioModel userDB = _bancoContent.Usuarios.FirstOrDefault(x => x.Id == id);
                 _bancoContent.Usuarios.Remove(userDB);
                 _bancoContent.SaveChanges();
-                TempData["MensagemSucesso"] = "Ordem apagada com sucesso";
+                TempData["MensagemSucesso"] = "Usuário apagado com sucesso";
             }
             catch (System.Exception)
             {
