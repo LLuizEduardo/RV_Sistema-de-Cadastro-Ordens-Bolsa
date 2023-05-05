@@ -29,6 +29,7 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
+                user.DataCadastro = System.DateTime.Now;
                 _bancoContent.Usuarios.Add(user);
                 TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso";
                 _bancoContent.SaveChanges();
@@ -53,8 +54,9 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
+                user.DataAlteracao = System.DateTime.Now;
                 _bancoContent.Usuarios.Update(user);
-                TempData["MensagemSucesso"] = "Ordem editada com sucesso";
+                TempData["MensagemSucesso"] = "Usuário editado com sucesso";
                 _bancoContent.SaveChanges();
 
                 return Redirect("Index");
