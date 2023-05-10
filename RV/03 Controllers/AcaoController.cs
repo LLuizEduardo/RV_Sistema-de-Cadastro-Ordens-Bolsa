@@ -19,7 +19,7 @@ namespace RV
         }
         public IActionResult Index()
         {
-            List<AcaoModel> acoes = _bancoContent.Acoes.ToList();
+            List<AcaoModel> acoes = _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
 
             return View(acoes);
         }

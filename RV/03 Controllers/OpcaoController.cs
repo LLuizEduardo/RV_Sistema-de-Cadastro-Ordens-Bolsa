@@ -19,7 +19,7 @@ namespace RV
         }
         public IActionResult Index()
         {
-            List<OpcaoModel> opcoes = _bancoContent.Opcoes.ToList();
+            List<OpcaoModel> opcoes = _bancoContent.Opcoes.OrderByDescending(x => x.Data).ToList();
 
             return View(opcoes);
         }
