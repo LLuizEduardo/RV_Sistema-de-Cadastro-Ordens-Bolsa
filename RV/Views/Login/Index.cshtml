@@ -4,20 +4,17 @@
 }
 
 <body class="bg-dark">
-    <div class="row d-flex justify-content-center" id="tela-login">
-        <form>
-            <br />
-            <div>
-                <div>
-                    <h2 class="text-light">Login</h2>
-                </div>
+    <div class="p-4 d-flex justify-content-center" id="tela-login">
+        <form class="p-4 border rounded bg-light">
+            <div class="mb-3">
+                <h2>Login</h2>
             </div>
             <div class="mb-3">
-                <label class="col-form-label text-light">Usuário</label>
+                <label class="col-form-label">Usuário</label>
                 <input type="email" class="form-control" name="user" placeholder="E-mail" />
             </div>
             <div class="mb-3">
-                <label class="col-form-label text-light">Senha</label>
+                <label class="col-form-label">Senha</label>
                 <input type="password" class="form-control" name="pass" placeholder="*****" />
             </div>
             <br />
@@ -27,7 +24,7 @@
                 </div>
                 <br />
                 <div>
-                    <div class="text-light">
+                    <div>
                         <label>ou</label>
                     </div>
                     <a asp-controller="Usuario" asp-action="Salvar">Cadastre-se</a>
