@@ -18,9 +18,21 @@ namespace RV
         //    _logger = logger;
         //}
 
+        private readonly BancoContent _bancoContent;
+
+        public HomeController(BancoContent bancoContent)
+        {
+            _bancoContent = bancoContent;
+        }
+
+
         public IActionResult Index()
         {
-            return View();
+            List<AcaoModel> acoes = _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
+            List<OpcaoModel> opcoes = _bancoContent.Opcoes.OrderByDescending(x => x.Data).ToList();
+            Workspace ws = new Workspace { Acoes = acoes, Opcoes = opcoes };
+
+            return View(ws);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
