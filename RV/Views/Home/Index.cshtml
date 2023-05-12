@@ -23,9 +23,22 @@
                         <th scope="col">Valor</th>
                     </tr>
                 </thead>
-                @if (Model != null && Model.Acoes.Any())
+                @*@if (Model != null && Model.Acoes.Any())
+        {
+            foreach (AcaoModel Acao in Model.Acoes)
+            {
+                <tbody>
+                    <tr>
+                        <td>@Acao.Papel</td>
+                        <td>@Acao.Quantidade</td>
+                        <td>@Acao.Valor</td>
+                    </tr>
+                </tbody>
+            }
+        }*@
+                @if (Model != null && Model.TotalAcoes.Any())
                 {
-                    foreach (AcaoModel Acao in Model.Acoes)
+                    foreach (TotalAcoes Acao in Model.TotalAcoes)
                     {
                         <tbody>
                             <tr>
@@ -38,7 +51,7 @@
                 }
             </table>
         </div>
-        <div class="col">
+        @*<div class="col">
             <a role="button" class="btn btn-primary" asp-controller="Opcao" asp-action="Index">Módulo de Opções</a>
             <br />
             <table class="table table-dark table-striped rounded-sm">
@@ -63,7 +76,7 @@
                     }
                 }
             </table>
-        </div>
+        </div>*@
     </div>
     <br />
 </body>

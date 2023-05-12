@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RV.Models;
 using System;
@@ -28,14 +29,14 @@ namespace RV
 
         public IActionResult Index()
         {
-            var listaAcoes = _bancoContent.Acoes;
-            var listaOpcoes = _bancoContent.Opcoes;
+            DbSet<AcaoModel> listaAcoes = _bancoContent.Acoes;
+            DbSet<OpcaoModel> listaOpcoes = _bancoContent.Opcoes;
 
 
             List<AcaoModel> acoes = listaAcoes.OrderByDescending(x => x.Data).ToList();
             List<OpcaoModel> opcoes = listaOpcoes.OrderByDescending(x => x.Data).ToList();
-            Workspace ws = new Workspace { Acoes = acoes, Opcoes = opcoes };
-
+            //Workspace ws = new() { Acoes = acoes, Opcoes = opcoes };
+            List<TotalAcoes> acoesT = new();
 
 
 
@@ -51,15 +52,21 @@ namespace RV
 
             foreach (var v in liAcoes)
             {
-                double C = listaAcoes.Where(x => x.Papel == v.Key)
-                                     .Sum(x => x.Valor * x.Quantidade);
-                double V = listaAcoes.Where(x => x.Ordem == "Venda")
-                                     .Where(x => x.Papel == v.ToString())
-                                     .Sum(x => x.Valor * x.Quantidade);
+                double C = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
+                double V = listaAcoes.Where(x => x.Ordem == "Venda" && x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
+
+                int Cq = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Quantidade);
+                int Vq = listaAcoes.Where(x => x.Ordem == "Venda" && x.Papel == v.Key).Sum(x => x.Quantidade);
+                //double V = listaAcoes.Where(x => x.Ordem == "Venda")
+                //                     .Where(x => x.Papel == v.ToString())
+                //                     .Sum(x => x.Valor * x.Quantidade);
                 double T = C - V;
+                int Tq = Cq - Vq;
+
+                acoesT.Add(new TotalAcoes { Papel = v.Key, Quantidade = Tq, Valor = T });
             }
 
-
+            Workspace ws = new() { Acoes = acoes, Opcoes = opcoes, TotalAcoes = acoesT };
             return View(ws);
         }
 
@@ -69,4 +76,6 @@ namespace RV
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
+    public class TotalAcoes { public string Papel { get; set; } public int Quantidade { get; set; } public double Valor { get; set; } }
 }
