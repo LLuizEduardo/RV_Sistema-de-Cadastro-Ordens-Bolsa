@@ -62,8 +62,9 @@ namespace RV
                 //                     .Sum(x => x.Valor * x.Quantidade);
                 double T = C - V;
                 int Tq = Cq - Vq;
+                double Pm = T / Tq;
 
-                acoesT.Add(new TotalAcoes { Papel = v.Key, Quantidade = Tq, Valor = T });
+                acoesT.Add(new TotalAcoes { Papel = v.Key, Quantidade = Tq, Valor = T, PrecoMedio = Pm });
             }
 
             Workspace ws = new() { Acoes = acoes, Opcoes = opcoes, TotalAcoes = acoesT };
@@ -77,5 +78,11 @@ namespace RV
         }
     }
 
-    public class TotalAcoes { public string Papel { get; set; } public int Quantidade { get; set; } public double Valor { get; set; } }
+    public class TotalAcoes
+    {
+        public string Papel { get; set; }
+        public int Quantidade { get; set; }
+        public double Valor { get; set; }
+        public double PrecoMedio { get; set; }
+    }
 }
