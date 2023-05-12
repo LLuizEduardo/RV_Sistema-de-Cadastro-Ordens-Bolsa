@@ -32,24 +32,11 @@ namespace RV
             DbSet<AcaoModel> listaAcoes = _bancoContent.Acoes;
             DbSet<OpcaoModel> listaOpcoes = _bancoContent.Opcoes;
 
-
-            List<AcaoModel> acoes = listaAcoes.OrderByDescending(x => x.Data).ToList();
-            List<OpcaoModel> opcoes = listaOpcoes.OrderByDescending(x => x.Data).ToList();
-            //Workspace ws = new() { Acoes = acoes, Opcoes = opcoes };
-            List<TotalAcoes> acoesT = new();
-
-
-
-            //OTHERS ADDITIONS
-            double compraAcoes = listaAcoes.Where(x => x.Ordem == "Compra").Sum(x => x.Valor * x.Quantidade);
-            double vendaAcoes = listaAcoes.Where(x => x.Ordem == "Venda").Sum(x => x.Valor * x.Quantidade);
-            double totalAcoes = compraAcoes - vendaAcoes;
-
             var liAcoes = from result in listaAcoes.ToList()
                           group result by result.Papel into novalista
                           select novalista;
 
-
+            List<TotalAcoes> acoesT = new();
             foreach (var v in liAcoes)
             {
                 double C = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
@@ -57,9 +44,7 @@ namespace RV
 
                 int Cq = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Quantidade);
                 int Vq = listaAcoes.Where(x => x.Ordem == "Venda" && x.Papel == v.Key).Sum(x => x.Quantidade);
-                //double V = listaAcoes.Where(x => x.Ordem == "Venda")
-                //                     .Where(x => x.Papel == v.ToString())
-                //                     .Sum(x => x.Valor * x.Quantidade);
+
                 double T = C - V;
                 int Tq = Cq - Vq;
                 double Pm = T / Tq;
@@ -67,7 +52,7 @@ namespace RV
                 acoesT.Add(new TotalAcoes { Papel = v.Key, Quantidade = Tq, Valor = T, PrecoMedio = Pm });
             }
 
-            Workspace ws = new() { Acoes = acoes, Opcoes = opcoes, TotalAcoes = acoesT };
+            Workspace ws = new() { TotalAcoes = acoesT };
             return View(ws);
         }
 
