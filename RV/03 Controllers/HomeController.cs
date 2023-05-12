@@ -28,9 +28,27 @@ namespace RV
 
         public IActionResult Index()
         {
-            List<AcaoModel> acoes = _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
-            List<OpcaoModel> opcoes = _bancoContent.Opcoes.OrderByDescending(x => x.Data).ToList();
+            var listaAcoes = _bancoContent.Acoes;
+            var listaOpcoes = _bancoContent.Opcoes;
+
+
+            List<AcaoModel> acoes = listaAcoes.OrderByDescending(x => x.Data).ToList();
+            List<OpcaoModel> opcoes = listaOpcoes.OrderByDescending(x => x.Data).ToList();
             Workspace ws = new Workspace { Acoes = acoes, Opcoes = opcoes };
+
+
+
+
+            //OTHERS ADDITIONS
+            double compraAcoes = listaAcoes.Where(x => x.Ordem == "Compra").Sum(x => x.Valor * x.Quantidade);
+            double vendaAcoes = listaAcoes.Where(x => x.Ordem == "Venda").Sum(x => x.Valor * x.Quantidade);
+            double totalAcoes = compraAcoes - vendaAcoes;
+
+            var teste = from result in listaAcoes.ToList()
+                        group result by result.Papel into novalista
+                        select novalista;
+
+
 
             return View(ws);
         }
