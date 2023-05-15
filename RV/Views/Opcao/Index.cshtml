@@ -13,14 +13,16 @@
 }
 
 <body class="bg-dark">
-    <div class="text-center">
-        <h3 class="text-light text-left">Histórico de ordens - Opções</h3>
-    </div>
     <br />
-    <div class="text-right">
-        <a role="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-sm">Voltar</a>
-        <a role="button" class="btn btn-info btn-sm" asp-controller="Opcao" asp-action="Salvar">Nova</a>
-        <button class="btn btn-primary btn-sm" onclick="exibir(10,'thEdicaoOp')">Editar</button>
+    <div class="row">
+        <div class="text-center">
+            <h3 class="col text-light text-left">Histórico de ordens - Opções</h3>
+        </div>
+        <div class="col text-right">
+            <a role="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-sm">Voltar</a>
+            <a role="button" class="btn btn-info btn-sm" asp-controller="Opcao" asp-action="Salvar">Nova</a>
+            <a role="button" class="btn btn-primary btn-sm" onclick="exibir(10,'thEdicaoOp')">Editar</a>
+        </div>
     </div>
     <br />
     <table class="table table-dark table-striped rounded-sm">
