@@ -12,27 +12,19 @@
 }
 
 <body class="bg-dark">
-
-    <br />
-
     <div class="text-center">
         <h1 class="text-light display-4"> Cadastro de ordens</h1>
     </div>
-
     <br />
-
     <form asp-controller="Acao" asp-action="Salvar" method="post">
         <div>
             <h3 class="text-light"> Lançar ordens de Ações</h3>
             <br />
-
             <div class="row">
-
                 <div class="col">
                     <label class="text-light">Data do Pregão</label>
                     <input type="date" class="form-control" asp-for="Data">
                 </div>
-
                 <div class="col">
                     <label class="text-light">Papel</label>
                     <select class="form-control" asp-for="Papel">
@@ -41,17 +33,14 @@
                         <option value="VALE3"> VALE3</option>
                     </select>
                 </div>
-
                 <div class="col">
                     <label class="text-light">Quantidade</label>
                     <input type="number" class="form-control" asp-for="Quantidade" placeholder="100">
                 </div>
-
                 <div class="col text-light">
                     <label>Valor Unitário</label>
                     <input type="text" class="form-control" asp-for="Valor" asp-format="{0:#,###.00}" placeholder="R$ 0,00" id="currencyAcao" onchange="currencyTreatment('#currencyAcao')" />
                 </div>
-
                 <div class="col">
                     <label class="text-light">Ordem de:</label>
                     <select class="form-control" asp-for="Ordem">
@@ -59,7 +48,6 @@
                         <option value="Venda"> Venda</option>
                     </select>
                 </div>
-
                 <div class="col">
                     <label class="text-light">Corretora</label>
                     <select class="form-control" asp-for="Corretora">
@@ -67,15 +55,10 @@
                         <option value="Clear"> Clear</option>
                     </select>
                 </div>
-
             </div>
-
             <br />
-
             <button type="submit" asp-controller="Acao" asp-action="Index" class="btn btn-secondary">Voltar</button>
             <button type="submit" asp-controller="Acao" asp-action="Salvar" class="btn btn-primary">Salvar</button>
         </div>
     </form>
-
-    <br />
 </body>
