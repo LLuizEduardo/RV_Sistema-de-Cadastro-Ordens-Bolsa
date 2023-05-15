@@ -14,7 +14,7 @@
 
 <body class="bg-dark">
     <div class="text-center">
-        <h1 class="text-light">Lista de ordens</h1>
+        <h3 class="text-light text-left">Histórico de ordens - Ações</h3>
     </div>
     <br />
     <div class="text-right">
@@ -46,7 +46,7 @@
                         <td>@Acao.Data.ToString().Substring(0, 10)</td>
                         <td>@Acao.Papel</td>
                         <td>@Acao.Quantidade</td>
-                        <td>@Acao.Valor</td>
+                        <td>@Acao.Valor.ToString("C2")</td>
                         <td>@Acao.Ordem</td>
                         <td>@Acao.Corretora</td>
                         <td style="display:none">
