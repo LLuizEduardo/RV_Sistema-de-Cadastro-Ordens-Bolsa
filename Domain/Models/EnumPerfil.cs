@@ -1,4 +1,4 @@
-﻿namespace RV
+﻿namespace RV.Domain.Models
 {
     public enum EnumPerfil
     {

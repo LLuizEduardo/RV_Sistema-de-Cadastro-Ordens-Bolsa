@@ -1,6 +1,6 @@
 using System;
 
-namespace RV.Models
+namespace RV.Domain.Models
 {
     public class ErrorViewModel
     {

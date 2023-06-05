@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RV
+namespace RV.Domain.Models
 {
     public class OpcaoModel
     {

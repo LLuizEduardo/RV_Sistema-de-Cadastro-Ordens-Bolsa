@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using RV.Models;
+using RV.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
