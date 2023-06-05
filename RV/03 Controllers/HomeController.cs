@@ -63,6 +63,11 @@ namespace RV
         }
     }
 
+    public class Workspace
+    {
+        public List<TotalAcoes> TotalAcoes { get; set; }
+    }
+
     public class TotalAcoes
     {
         public string Papel { get; set; }
