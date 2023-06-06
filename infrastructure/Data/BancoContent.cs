@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using RV.Domain.Models;
 
-namespace RV
+namespace RV.Infrastucture.Data
 {
     public class BancoContent : DbContext
     {

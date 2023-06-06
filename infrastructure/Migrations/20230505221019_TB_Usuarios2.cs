@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RV.Migrations
+namespace RV.Infrastucture.Migrations
 {
     public partial class TB_Usuarios2 : Migration
     {

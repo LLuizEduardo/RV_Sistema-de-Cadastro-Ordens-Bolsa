@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RV.Domain.Models;
+using RV.Infrastucture.Data;
 
 namespace RV
 {

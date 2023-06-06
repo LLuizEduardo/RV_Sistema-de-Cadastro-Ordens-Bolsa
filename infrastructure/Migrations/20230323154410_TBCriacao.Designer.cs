@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RV;
+using RV.Infrastucture.Data;
 
-namespace RV.Migrations
+namespace RV.Infrastucture.Migrations
 {
     [DbContext(typeof(BancoContent))]
     [Migration("20230323154410_TBCriacao")]

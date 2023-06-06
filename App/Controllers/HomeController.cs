@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RV.Domain.Models;
+using RV.Infrastucture.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
