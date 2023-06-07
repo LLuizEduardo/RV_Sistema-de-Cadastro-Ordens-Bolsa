@@ -1,3 +1,5 @@
+using Domain.Interfaces;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +29,10 @@ namespace RV
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<BancoContent>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
-            //services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+            services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IAcaoService, AcaoService>();
+            services.AddScoped<IOpcaoService, OpcaoService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
