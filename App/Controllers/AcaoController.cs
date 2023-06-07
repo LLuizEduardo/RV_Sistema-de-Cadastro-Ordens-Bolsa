@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using RV.Domain.Models;
 using RV.Infrastucture.Data;
+using Domain.Interfaces;
 
 namespace RV
 {
     public class AcaoController : Controller
     {
         private readonly BancoContent _bancoContent;
+        private readonly IAcaoService _acaoService;
 
-        public AcaoController(BancoContent bancoContent)
+        public AcaoController(BancoContent bancoContent, IAcaoService acaoService)
         {
             _bancoContent = bancoContent;
+            _acaoService = acaoService;
         }
 
-        public IActionResult Salvar()
-        {
-            return View();
-        }
+        //public IActionResult Salvar()
+        //{
+        //    return View();
+        //}
         public IActionResult Index()
         {
-            List<AcaoModel> acoes = _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
-
+            IEnumerable<AcaoModel> acoes = _acaoService.BuscarTodas();
             return View(acoes);
         }
 

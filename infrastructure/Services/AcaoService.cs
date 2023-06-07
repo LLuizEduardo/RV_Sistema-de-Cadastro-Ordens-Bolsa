@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using RV.Domain.Models;
+using RV.Infrastucture.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,13 @@ namespace Infrastructure.Services
 {
     public class AcaoService : IAcaoService
     {
+        private readonly BancoContent _bancoContent;
+
+        public AcaoService(BancoContent bancoContent)
+        {
+            _bancoContent = bancoContent;
+        }
+
         public bool Apagar()
         {
             throw new NotImplementedException();
@@ -20,9 +28,9 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<AcaoModel>> BuscarTodas()
+        public List<AcaoModel> BuscarTodas()
         {
-            throw new NotImplementedException();
+            return _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
         }
 
         public Task<AcaoModel> Criar(AcaoModel acao)
