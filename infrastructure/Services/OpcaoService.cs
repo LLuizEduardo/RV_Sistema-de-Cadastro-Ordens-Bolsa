@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using RV.Domain.Models;
+using RV.Infrastucture.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,40 @@ namespace Infrastructure.Services
 {
     public class OpcaoService : IOpcaoService
     {
-        public bool Apagar()
+        private readonly BancoContent _bancoContent;
+
+        public OpcaoService(BancoContent bancoContent)
         {
-            throw new NotImplementedException();
+            _bancoContent = bancoContent;
         }
 
-        public Task<OpcaoModel> BuscarPorId(int id)
+        public List<OpcaoModel> BuscarTodas()
         {
-            throw new NotImplementedException();
+            return _bancoContent.Opcoes.OrderByDescending(x => x.Data).ToList();
         }
 
-        public Task<IEnumerable<OpcaoModel>> BuscarTodas()
+        public OpcaoModel BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _bancoContent.Opcoes.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Task<OpcaoModel> Criar(OpcaoModel opcao)
+        public void Salvar(OpcaoModel opcao)
         {
-            throw new NotImplementedException();
+            _bancoContent.Opcoes.Add(opcao);
+            _bancoContent.SaveChanges();
         }
 
-        public Task<OpcaoModel> Editar(OpcaoModel opcao)
+        public void Editar(OpcaoModel opcao)
         {
-            throw new NotImplementedException();
+            _bancoContent.Opcoes.Update(opcao);
+            _bancoContent.SaveChanges();
+        }
+
+        public void Apagar(int id)
+        {
+            OpcaoModel opcao = BuscarPorId(id);
+            _bancoContent.Opcoes.Remove(opcao);
+            _bancoContent.SaveChanges();
         }
     }
 }

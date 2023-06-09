@@ -9,10 +9,10 @@ namespace Domain.Interfaces
 {
     public interface IOpcaoService
     {
-        public Task<IEnumerable<OpcaoModel>> BuscarTodas();
-        public Task<OpcaoModel> BuscarPorId(int id);
-        public Task<OpcaoModel> Criar(OpcaoModel opcao);
-        public Task<OpcaoModel> Editar(OpcaoModel opcao);
-        public bool Apagar();
+        public List<OpcaoModel> BuscarTodas();
+        public OpcaoModel BuscarPorId(int id);
+        public void Salvar(OpcaoModel opcao);
+        public void Editar(OpcaoModel opcao);
+        public void Apagar(int id);
     }
 }
