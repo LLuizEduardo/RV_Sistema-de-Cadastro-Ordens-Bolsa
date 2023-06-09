@@ -9,19 +9,18 @@ namespace RV
 {
     public class AcaoController : Controller
     {
-        private readonly BancoContent _bancoContent;
         private readonly IAcaoService _acaoService;
 
         public AcaoController(BancoContent bancoContent, IAcaoService acaoService)
         {
-            _bancoContent = bancoContent;
             _acaoService = acaoService;
         }
 
-        //public IActionResult Salvar()
-        //{
-        //    return View();
-        //}
+        public IActionResult Nova()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             IEnumerable<AcaoModel> acoes = _acaoService.BuscarTodas();
@@ -33,9 +32,8 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
-                _bancoContent.Acoes.Add(acao);
+                _acaoService.Salvar(acao);
                 TempData["MensagemSucesso"] = "Ordem cadastrada com sucesso";
-                _bancoContent.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -48,7 +46,7 @@ namespace RV
 
         public IActionResult Editar(AcaoModel acao)
         {
-            AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == acao.Id);
+            AcaoModel acaoDB = _acaoService.BuscarPorId(acao.Id);
             return View(acaoDB);
         }
 
@@ -57,9 +55,8 @@ namespace RV
         {
             if (ModelState.IsValid)
             {
-                _bancoContent.Acoes.Update(acao);
+                _acaoService.Editar(acao);
                 TempData["MensagemSucesso"] = "Ordem editada com sucesso";
-                _bancoContent.SaveChanges();
 
                 return Redirect("Index");
             }
@@ -72,16 +69,14 @@ namespace RV
 
         public IActionResult ApagarConfirmacao(AcaoModel acao)
         {
-            AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == acao.Id);
+            AcaoModel acaoDB = _acaoService.BuscarPorId(acao.Id);
             return View(acaoDB);
         }
         public IActionResult Apagar(int id)
         {
             try
             {
-                AcaoModel acaoDB = _bancoContent.Acoes.FirstOrDefault(x => x.Id == id);
-                _bancoContent.Acoes.Remove(acaoDB);
-                _bancoContent.SaveChanges();
+                _acaoService.Apagar(id);
                 TempData["MensagemSucesso"] = "Ordem apagada com sucesso";
             }
             catch (System.Exception)

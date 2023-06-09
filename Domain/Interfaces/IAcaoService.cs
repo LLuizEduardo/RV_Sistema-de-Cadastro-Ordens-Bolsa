@@ -10,9 +10,9 @@ namespace Domain.Interfaces
     public interface IAcaoService
     {
         public List<AcaoModel> BuscarTodas();
-        public Task<AcaoModel> BuscarPorId(int id);
-        public Task<AcaoModel> Criar(AcaoModel acao);
-        public Task<AcaoModel> Editar(AcaoModel acao);
-        public bool Apagar();
+        public AcaoModel BuscarPorId(int id);
+        public void Salvar(AcaoModel acao);
+        public void Editar(AcaoModel acao);
+        public void Apagar(int id);
     }
 }

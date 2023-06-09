@@ -18,29 +18,33 @@ namespace Infrastructure.Services
             _bancoContent = bancoContent;
         }
 
-        public bool Apagar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<AcaoModel> BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<AcaoModel> BuscarTodas()
         {
             return _bancoContent.Acoes.OrderByDescending(x => x.Data).ToList();
         }
 
-        public Task<AcaoModel> Criar(AcaoModel acao)
+        public AcaoModel BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _bancoContent.Acoes.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Task<AcaoModel> Editar(AcaoModel acao)
+        public void Salvar(AcaoModel acao)
         {
-            throw new NotImplementedException();
+            _bancoContent.Acoes.Add(acao);
+            _bancoContent.SaveChanges();
+        }
+
+        public void Editar(AcaoModel acao)
+        {
+            _bancoContent.Acoes.Update(acao);
+            _bancoContent.SaveChanges();
+        }
+
+        public void Apagar(int id)
+        {
+            AcaoModel acao = BuscarPorId(id);
+            _bancoContent.Acoes.Remove(acao);
+            _bancoContent.SaveChanges();
         }
     }
 }
