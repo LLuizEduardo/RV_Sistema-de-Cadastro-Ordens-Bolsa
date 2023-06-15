@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using RV.Domain.Models;
+using RV.Infrastucture.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,40 @@ namespace Infrastructure.Services
 {
     public class UsuarioService : IUsuarioService
     {
-        public bool Apagar()
+        private readonly BancoContent _bancoContent;
+
+        public UsuarioService(BancoContent bancoContent)
         {
-            throw new NotImplementedException();
+            _bancoContent = bancoContent;
         }
 
-        public Task<UsuarioModel> BuscarPorId(int id)
+        public List<UsuarioModel> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _bancoContent.Usuarios.OrderBy(x => x.Nome).ToList();
         }
 
-        public Task<IEnumerable<UsuarioModel>> BuscarTodas()
+        public UsuarioModel BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _bancoContent.Usuarios.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Task<UsuarioModel> Criar(UsuarioModel usuario)
+        public void Salvar(UsuarioModel user)
         {
-            throw new NotImplementedException();
+            _bancoContent.Usuarios.Add(user);
+            _bancoContent.SaveChanges();
         }
 
-        public Task<UsuarioModel> Editar(UsuarioModel usuario)
+        public void Editar(UsuarioModel user)
         {
-            throw new NotImplementedException();
+            _bancoContent.Usuarios.Update(user);
+            _bancoContent.SaveChanges();
+        }
+
+        public void Apagar(int id)
+        {
+            UsuarioModel user = BuscarPorId(id);
+            _bancoContent.Usuarios.Remove(user);
+            _bancoContent.SaveChanges();
         }
     }
 }

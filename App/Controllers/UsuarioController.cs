@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using RV.Domain.Models;
 using RV.Infrastucture.Data;
+using Domain.Interfaces;
 
 namespace RV
 {
     public class UsuarioController : Controller
     {
-        private readonly BancoContent _bancoContent;
+        private readonly IUsuarioService _usuarioService;
 
-        public UsuarioController(BancoContent bancoContent)
+        public UsuarioController(IUsuarioService usuarioService)
         {
-            _bancoContent = bancoContent;
+            _usuarioService = usuarioService;
         }
 
         public IActionResult Salvar()
         {
             return View();
         }
+
         public IActionResult Index()
         {
-            List<UsuarioModel> user = _bancoContent.Usuarios.ToList();
-
-            return View(user);
+            IEnumerable<UsuarioModel> users = _usuarioService.BuscarTodos();
+            return View(users);
         }
 
         [HttpPost]
@@ -32,9 +33,8 @@ namespace RV
             if (ModelState.IsValid)
             {
                 user.DataCadastro = System.DateTime.Now;
-                _bancoContent.Usuarios.Add(user);
+                _usuarioService.Salvar(user);
                 TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso";
-                _bancoContent.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -47,7 +47,7 @@ namespace RV
 
         public IActionResult Editar(UsuarioModel user)
         {
-            UsuarioModel userDB = _bancoContent.Usuarios.FirstOrDefault(x => x.Id == user.Id);
+            UsuarioModel userDB = _usuarioService.BuscarPorId(user.Id);
             return View(userDB);
         }
 
@@ -57,9 +57,8 @@ namespace RV
             if (ModelState.IsValid)
             {
                 user.DataAlteracao = System.DateTime.Now;
-                _bancoContent.Usuarios.Update(user);
+                _usuarioService.Editar(user);
                 TempData["MensagemSucesso"] = "Usuário editado com sucesso";
-                _bancoContent.SaveChanges();
 
                 return Redirect("Index");
             }
@@ -72,16 +71,14 @@ namespace RV
 
         public IActionResult ApagarConfirmacao(UsuarioModel user)
         {
-            UsuarioModel userDB = _bancoContent.Usuarios.FirstOrDefault(x => x.Id == user.Id);
+            UsuarioModel userDB = _usuarioService.BuscarPorId(user.Id);
             return View(userDB);
         }
         public IActionResult Apagar(int id)
         {
             try
             {
-                UsuarioModel userDB = _bancoContent.Usuarios.FirstOrDefault(x => x.Id == id);
-                _bancoContent.Usuarios.Remove(userDB);
-                _bancoContent.SaveChanges();
+                _usuarioService.Apagar(id);
                 TempData["MensagemSucesso"] = "Usuário apagado com sucesso";
             }
             catch (System.Exception)

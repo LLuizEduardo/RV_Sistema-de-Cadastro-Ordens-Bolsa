@@ -9,10 +9,10 @@ namespace Domain.Interfaces
 {
     public interface IUsuarioService
     {
-        public Task<IEnumerable<UsuarioModel>> BuscarTodas();
-        public Task<UsuarioModel> BuscarPorId(int id);
-        public Task<UsuarioModel> Criar(UsuarioModel usuario);
-        public Task<UsuarioModel> Editar(UsuarioModel usuario);
-        public bool Apagar();
+        public List<UsuarioModel> BuscarTodos();
+        public UsuarioModel BuscarPorId(int id);
+        public void Salvar(UsuarioModel usuario);
+        public void Editar(UsuarioModel usuario);
+        public void Apagar(int id);
     }
 }
