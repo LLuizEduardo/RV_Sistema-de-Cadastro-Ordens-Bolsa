@@ -26,5 +26,6 @@ namespace RV.Domain.Models
         public double Valor { get; set; }
         public string Ordem { get; set; }
         public string Corretora { get; set; }
+        public UsuarioModel Usuario { get; set; }
     }
 }
