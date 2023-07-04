@@ -30,6 +30,9 @@ namespace Infrastructure.Services
 
         public void Salvar(OpcaoModel opcao)
         {
+            if (opcao.Ordem == "Venda")
+                opcao.Quantidade *= (-1);
+
             _bancoContent.Opcoes.Add(opcao);
             _bancoContent.SaveChanges();
         }
