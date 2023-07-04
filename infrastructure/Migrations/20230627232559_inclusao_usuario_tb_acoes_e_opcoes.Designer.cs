@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RV.Infrastucture.Data;
 
 namespace RV.Infrastucture.Migrations
 {
     [DbContext(typeof(BancoContent))]
-    partial class BancoContentModelSnapshot : ModelSnapshot
+    [Migration("20230627232559_inclusao_usuario_tb_acoes_e_opcoes")]
+    partial class inclusao_usuario_tb_acoes_e_opcoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
