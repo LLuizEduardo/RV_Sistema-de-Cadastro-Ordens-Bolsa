@@ -27,25 +27,17 @@ namespace Infrastructure.Services
                           group result by result.Papel into novalista
                           select novalista;
 
-            List<TotalAcoes> acoesT = new();
+            List<PosicaoAcoes> posicaoAcoes = new();
             foreach (var v in liAcoes)
             {
-                double C = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
-                double V = listaAcoes.Where(x => x.Ordem == "Venda" && x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
+                double valor = listaAcoes.Where(x => x.Papel == v.Key).Sum(x => x.Valor * x.Quantidade);
 
-                int Cq = listaAcoes.Where(x => x.Ordem == "Compra" && x.Papel == v.Key).Sum(x => x.Quantidade);
-                int Vq = listaAcoes.Where(x => x.Ordem == "Venda" && x.Papel == v.Key).Sum(x => x.Quantidade);
+                int quantidade = listaAcoes.Where(x => x.Papel == v.Key).Sum(x => x.Quantidade);
 
-                double T = C - V;
-                int Tq = Cq - Vq;
-                double Pm = T / Tq;
-
-                acoesT.Add(new TotalAcoes { Papel = v.Key, Quantidade = Tq, Valor = T, PrecoMedio = Pm });
+                posicaoAcoes.Add(new PosicaoAcoes { Papel = v.Key, Quantidade = quantidade, Valor = valor, PrecoMedio = valor/quantidade });
             }
 
-            Workspace ws = new() { TotalAcoes = acoesT };
-
-            return ws;
+            return new Workspace() { PosicaoAcoes = posicaoAcoes };
         }
     }
 }

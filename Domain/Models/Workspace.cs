@@ -7,10 +7,10 @@ namespace RV.Domain.Models
 {
     public class Workspace
     {
-        public List<TotalAcoes> TotalAcoes { get; set; }
+        public List<PosicaoAcoes> PosicaoAcoes { get; set; }
     }
 
-    public class TotalAcoes
+    public class PosicaoAcoes
     {
         public string Papel { get; set; }
         public int Quantidade { get; set; }

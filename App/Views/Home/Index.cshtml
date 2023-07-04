@@ -19,9 +19,9 @@
                         <th scope="col">Valor</th>
                     </tr>
                 </thead>
-                @if (Model != null && Model.TotalAcoes.Any())
+                @if (Model != null && Model.PosicaoAcoes.Any())
                 {
-                    foreach (TotalAcoes Acao in Model.TotalAcoes)
+                    foreach (PosicaoAcoes Acao in Model.PosicaoAcoes)
                     {
                         <tbody>
                             <tr>
