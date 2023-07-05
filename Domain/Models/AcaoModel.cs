@@ -10,7 +10,7 @@ namespace RV.Domain.Models
         public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Escolha o papel")]
-        public string Papel { get; set; }
+        public PapelModel Papel { get; set; }
 
         [Required(ErrorMessage = "Digite a quantidade")]
         [Range(1, 9999999)]

@@ -13,7 +13,7 @@ namespace RV.Domain.Models
         [Required(ErrorMessage = "Digite a Opção")]
         public string Opcao { get; set; }
         public string Tipo { get; set; }
-        public string Papel { get; set; }
+        public PapelModel Papel { get; set; }
 
         [Required(ErrorMessage = "Digite o Strike")]
         public double Strike { get; set; }

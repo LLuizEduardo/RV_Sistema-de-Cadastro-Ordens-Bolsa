@@ -12,7 +12,7 @@ namespace RV.Domain.Models
 
     public class PosicaoAcoes
     {
-        public string Papel { get; set; }
+        public PapelModel Papel { get; set; }
         public int Quantidade { get; set; }
         public double Valor { get; set; }
         public double PrecoMedio { get; set; }
