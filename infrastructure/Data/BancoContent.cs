@@ -16,5 +16,6 @@ namespace RV.Infrastucture.Data
         public DbSet<AcaoModel> Acoes { get; set; }
         public DbSet<OpcaoModel> Opcoes { get; set; }
         public DbSet<UsuarioModel> Usuarios { get; set; }
+        public DbSet<CorretoraModel> Corretora { get; set; }
     }
 }
