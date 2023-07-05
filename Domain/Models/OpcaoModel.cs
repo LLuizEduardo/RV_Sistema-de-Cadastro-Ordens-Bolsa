@@ -24,7 +24,7 @@ namespace RV.Domain.Models
 
         [Required(ErrorMessage = "Digite o valor")]
         public double Valor { get; set; }
-        public string Ordem { get; set; }
+        public char Ordem { get; set; }
         public CorretoraModel Corretora { get; set; }
         public UsuarioModel Usuario { get; set; }
     }

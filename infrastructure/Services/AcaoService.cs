@@ -30,7 +30,7 @@ namespace Infrastructure.Services
 
         public void Salvar(AcaoModel acao)
         {
-            if (acao.Ordem=="Venda")
+            if (acao.Ordem == 'V')
                 acao.Quantidade *= (-1);
 
             _bancoContent.Acoes.Add(acao);

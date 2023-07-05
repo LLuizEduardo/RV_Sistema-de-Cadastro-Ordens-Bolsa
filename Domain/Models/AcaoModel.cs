@@ -20,7 +20,7 @@ namespace RV.Domain.Models
         [Range(0.0001, 9999999)]
         public double Valor { get; set; }
 
-        public string Ordem { get; set; }
+        public char Ordem { get; set; }
         public CorretoraModel Corretora { get; set; }
         public UsuarioModel Usuario { get; set; }
     }
